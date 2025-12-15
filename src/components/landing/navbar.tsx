@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Logo from "./logo";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Navbar() {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -53,7 +54,8 @@ export default function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
             <a
               href="#contact"
               onClick={(e) => handleScroll(e, "contact")}

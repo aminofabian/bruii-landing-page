@@ -9,7 +9,7 @@ export default function TechStackSection() {
   ];
 
   return (
-    <section className="py-20 bg-muted/50">
+    <section id="tech-stack" className="py-20 bg-muted/50 scroll-mt-16">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-4">Tech Stack</h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">

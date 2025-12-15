@@ -15,7 +15,7 @@ export default function UseCasesSection() {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section id="use-cases" className="py-20 bg-background scroll-mt-16">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-4">Use Cases</h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">

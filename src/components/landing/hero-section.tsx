@@ -11,7 +11,7 @@ export default function HeroSection() {
               Complete Gaming Platform Management in One System
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
-              Streamline your gaming operations with a unified admin dashboard. Manage players, tournaments, payments, and analytics all from one powerful platform.
+              Complete white-label gaming platform administration solution. Manage multiple companies, users, games, transactions, bonuses, and more from a single unified system.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button size="lg" className="text-base px-8 py-6">

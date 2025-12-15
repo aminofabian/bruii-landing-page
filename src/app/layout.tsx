@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bruii - Landing Page",
-  description: "Build amazing experiences with our powerful platform",
+  title: "Bruii - Complete Gaming Platform Management System",
+  description: "Complete white-label gaming platform administration solution. Manage multiple companies, users, games, transactions, bonuses, and more from a single unified system.",
+  keywords: "gaming platform, white-label gaming, gaming management system, multi-tenant gaming, game administration",
 };
 
 export default function RootLayout({

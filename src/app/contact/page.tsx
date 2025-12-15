@@ -9,6 +9,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    company: "",
     message: "",
   });
 
@@ -61,6 +62,19 @@ export default function ContactPage() {
               value={formData.email}
               onChange={handleChange}
               placeholder="your.email@example.com"
+            />
+          </div>
+          <div>
+            <label htmlFor="company" className="block mb-2 font-medium">
+              Company <span className="text-muted-foreground text-sm">(optional)</span>
+            </label>
+            <Input
+              id="company"
+              name="company"
+              type="text"
+              value={formData.company}
+              onChange={handleChange}
+              placeholder="Your company name"
             />
           </div>
           <div>

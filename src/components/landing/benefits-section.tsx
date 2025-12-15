@@ -1,40 +1,57 @@
+import { Check } from "lucide-react";
+
 export default function BenefitsSection() {
   const benefits = [
     {
-      title: "Fast Performance",
-      description: "Lightning-fast load times and smooth user experiences.",
+      title: "Scalable",
+      description: "Handle multiple companies and thousands of users with ease. Built to grow with your business.",
     },
     {
-      title: "Secure & Reliable",
-      description: "Enterprise-grade security with 99.9% uptime guarantee.",
+      title: "Secure",
+      description: "Enterprise-grade security with role-based access control and JWT authentication. Your data is protected.",
     },
     {
-      title: "Easy to Use",
-      description: "Intuitive interface that requires no technical expertise.",
+      title: "Real-time",
+      description: "Live updates and WebSocket integration. Monitor transactions, chat, and activities in real-time.",
     },
     {
-      title: "24/7 Support",
-      description: "Round-the-clock support from our dedicated team.",
+      title: "Customizable",
+      description: "White-label solution with full branding control. Customize the platform to match your brand identity.",
+    },
+    {
+      title: "Comprehensive",
+      description: "All-in-one solution for gaming operations. Everything you need in a single unified platform.",
+    },
+    {
+      title: "Modern",
+      description: "Built with latest technologies (Next.js 15, React 19) for optimal performance and developer experience.",
     },
   ];
 
   return (
     <section id="benefits" className="py-20 bg-muted/50 scroll-mt-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-4">Benefits</h2>
+        <h2 className="text-4xl font-bold text-center mb-4">Why Choose Our Platform</h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Why choose our platform
+          Key Advantages for Your Gaming Operations
         </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {benefits.map((benefit, index) => (
             <div
               key={index}
               className="p-6 rounded-lg border border-border bg-background hover:shadow-md transition-shadow"
             >
-              <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
-              <p className="text-sm text-muted-foreground">
-                {benefit.description}
-              </p>
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Check className="w-4 h-4 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {benefit.description}
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

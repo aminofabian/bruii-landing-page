@@ -52,16 +52,14 @@ export default function HeroSection() {
 
           {/* Visual Section with Slot Game Animations */}
           <div className="relative w-full h-[600px] lg:h-[700px]">
-            {/* Main Dashboard Image with Silver Border */}
-            <div className="relative rounded-xl border-2 border-slate-400/50 bg-gradient-to-r from-slate-400/30 via-slate-500/40 to-slate-400/30 p-0.5 shadow-2xl overflow-hidden z-10 h-full">
-              <div className="relative rounded-xl bg-card h-full overflow-hidden">
-                <Image
-                  src={dashboardImage}
-                  alt="Admin Dashboard Preview"
-                  className="w-full h-full object-cover"
-                  priority
-                />
-              </div>
+            {/* Main Dashboard Image */}
+            <div className="relative z-10 h-full flex items-center justify-center">
+              <Image
+                src={dashboardImage}
+                alt="Admin Dashboard Preview"
+                className="w-full h-full object-contain"
+                priority
+              />
             </div>
 
             {/* Subtle Background Glow */}
@@ -82,28 +80,20 @@ export default function HeroSection() {
                     animationDelay: `${feature.delay}s`,
                   }}
                 >
-                  {/* Slot Reel Badge */}
-                  <div className="
-                    w-16 h-16 rounded-xl
-                    bg-gradient-to-br from-slate-400 via-slate-500 to-slate-600
-                    text-slate-100 border-2 border-slate-400/60
-                    shadow-lg
-                    flex items-center justify-center
-                    animate-slot-spin
-                    hover:scale-125 hover:from-slate-300 hover:via-slate-400 hover:to-slate-500
-                    transition-all duration-300
-                    cursor-pointer
-                    relative z-10
-                  ">
-                    <div style={{ color: '#e9e8ed' }}>
-                      <Icon className="w-7 h-7" />
-                    </div>
-                    {/* Slot Symbols */}
-                    <div className="absolute -top-1 -right-1 w-3 h-3 border border-slate-300 rounded-sm bg-slate-500/30 animate-sparkle">
-                      <div className="w-full h-0.5 bg-slate-300 mt-0.5"></div>
-                      <div className="w-full h-0.5 bg-slate-300 mt-0.5"></div>
-                    </div>
-                    <div className="absolute -bottom-1 -left-1 w-2.5 h-2.5 border border-slate-300 rounded-full bg-slate-500/30 animate-sparkle" style={{ animationDelay: "0.5s" }}></div>
+                  {/* Icon Only */}
+                  <div 
+                    className="
+                      flex items-center justify-center
+                      animate-slot-spin
+                      hover:scale-125
+                      transition-all duration-300
+                      cursor-pointer
+                      relative z-10
+                      group/icon
+                    "
+                    style={{ color: '#e9e8ed' }}
+                  >
+                    <Icon className="w-7 h-7 [&>svg]:stroke-[#e9e8ed] [&>svg]:stroke-2 group-hover/icon:[&>svg]:stroke-[#1e1b4b] transition-colors duration-300" />
                   </div>
                   
                   {/* Win Label */}

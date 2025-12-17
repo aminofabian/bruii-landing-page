@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import dashboardImage from "@/app/dashboard.png";
 import { 
   Building2, Users, Gamepad2, CreditCard, Gift, Network, TrendingUp, Zap,
-  ArrowRight, CheckCircle2, Play, Sparkles, BarChart3, Shield, Clock
+  ArrowRight, CheckCircle2, Sparkles, BarChart3, Shield, Clock
 } from "lucide-react";
 
 interface Metric {
@@ -132,16 +132,22 @@ export default function HeroSection() {
                 size="lg" 
                 className="text-base px-8 py-6 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 group"
               >
-                Start Free Trial
+                Get Started
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="text-base px-8 py-6 border-2 hover:bg-muted/50 backdrop-blur-sm group"
+                className="text-base px-8 py-6 border-2 hover:bg-muted/50 backdrop-blur-sm"
               >
-                <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-                Watch Demo
+                Request Demo
+              </Button>
+              <Button 
+                size="lg" 
+                variant="ghost" 
+                className="text-base px-8 py-6"
+              >
+                Contact Us
               </Button>
             </div>
 

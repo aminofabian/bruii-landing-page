@@ -14,15 +14,22 @@ interface SlotFeature {
 
 export default function HeroSection() {
   const slotFeatures: SlotFeature[] = [
-    { icon: Building2, label: "Multi-Tenant", position: { top: "8%", left: "-4%" }, delay: 0 },
-    { icon: Users, label: "Users", position: { top: "25%", left: "-5%" }, delay: 0.3 },
-    { icon: Gamepad2, label: "Games", position: { top: "42%", left: "-4%" }, delay: 0.6 },
-    { icon: CreditCard, label: "Transactions", position: { top: "59%", left: "-5%" }, delay: 0.9 },
-    { icon: Gift, label: "Bonuses", position: { top: "76%", left: "-4%" }, delay: 1.2 },
-    { icon: TrendingUp, label: "Analytics", position: { top: "12%", left: "104%" }, delay: 0.2 },
-    { icon: Zap, label: "Real-Time", position: { top: "30%", left: "105%" }, delay: 0.5 },
-    { icon: Network, label: "Affiliates", position: { top: "48%", left: "104%" }, delay: 0.8 },
-    { icon: Gift, label: "Rewards", position: { top: "66%", left: "105%" }, delay: 1.1 },
+    // Top section - Core platform & insights
+    { icon: Building2, label: "Multi-Tenant", position: { top: "5%", left: "15%" }, delay: 0 },
+    { icon: TrendingUp, label: "Analytics", position: { top: "5%", left: "85%" }, delay: 0 },
+    
+    // Left side - Management & operations
+    { icon: Users, label: "User Management", position: { top: "20%", left: "-3%" }, delay: 0.3 },
+    { icon: CreditCard, label: "Transactions", position: { top: "45%", left: "-3%" }, delay: 0.6 },
+    { icon: Gift, label: "Bonuses", position: { top: "70%", left: "-3%" }, delay: 0.9 },
+    
+    // Right side - Engagement & network
+    { icon: Zap, label: "Real-Time", position: { top: "20%", left: "103%" }, delay: 0.2 },
+    { icon: Network, label: "Affiliates", position: { top: "45%", left: "103%" }, delay: 0.5 },
+    { icon: Gamepad2, label: "Games", position: { top: "70%", left: "103%" }, delay: 0.8 },
+    
+    // Bottom - Central feature
+    { icon: Gift, label: "Rewards", position: { top: "95%", left: "50%" }, delay: 1.1 },
   ];
 
   return (
@@ -50,7 +57,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Visual Section with Slot Game Animations */}
+          {/* Visual Section */}
           <div className="relative w-full h-[600px] lg:h-[700px]">
             {/* Main Dashboard Image */}
             <div className="relative z-10 h-full flex items-center justify-center">
@@ -61,12 +68,8 @@ export default function HeroSection() {
                 priority
               />
             </div>
-
-            {/* Subtle Background Glow */}
-            <div className="absolute -z-10 top-8 left-8 w-full h-full rounded-xl bg-slate-500/10 blur-3xl animate-pulse-slow"></div>
-            <div className="absolute -z-10 top-12 left-12 w-full h-full rounded-xl bg-slate-400/8 blur-3xl animate-pulse-slow" style={{ animationDelay: "1s" }}></div>
             
-            {/* Slot Machine Style Feature Reels */}
+            {/* Simple Feature Icons */}
             {slotFeatures.map((feature, index) => {
               const Icon = feature.icon;
               
@@ -77,98 +80,31 @@ export default function HeroSection() {
                   style={{
                     top: feature.position.top,
                     left: feature.position.left,
-                    animationDelay: `${feature.delay}s`,
                   }}
                 >
-                  {/* Icon Only */}
-                  <div 
-                    className="
-                      flex items-center justify-center
-                      animate-slot-spin
-                      hover:scale-125
-                      transition-all duration-300
-                      cursor-pointer
-                      relative z-10
-                      group/icon
-                    "
-                    style={{ color: '#e9e8ed' }}
-                  >
-                    <Icon className="w-7 h-7 [&>svg]:stroke-[#e9e8ed] [&>svg]:stroke-2 group-hover/icon:[&>svg]:stroke-[#1e1b4b] transition-colors duration-300" />
+                  <div className="flex items-center justify-center cursor-pointer transition-colors duration-200">
+                    <Icon className="w-6 h-6 [&>svg]:stroke-[#e9e8ed] [&>svg]:stroke-2 [&>svg]:transition-colors [&>svg]:duration-200 group-hover:[&>svg]:stroke-[#5448f9]" />
                   </div>
                   
-                  {/* Win Label */}
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                    <div className="
-                      bg-gradient-to-r from-slate-600 to-slate-700
-                      text-slate-100 text-xs font-bold px-3 py-1.5 rounded-lg
-                      shadow-lg border border-slate-500/50
-                      whitespace-nowrap
-                      animate-win-pop
-                    ">
+                  {/* Simple Label on Hover */}
+                  <div 
+                    className="absolute opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20"
+                    style={{
+                      top: parseFloat(feature.position.top) > 90 ? 'auto' : '100%',
+                      bottom: parseFloat(feature.position.top) > 90 ? '100%' : 'auto',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      marginTop: parseFloat(feature.position.top) > 90 ? '0' : '8px',
+                      marginBottom: parseFloat(feature.position.top) > 90 ? '8px' : '0',
+                    }}
+                  >
+                    <div className="bg-foreground text-background text-xs px-2 py-1 rounded whitespace-nowrap shadow-sm">
                       {feature.label}
                     </div>
                   </div>
-                  
-                  {/* Connecting Light Beam */}
-                  <div
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-0 group-hover:opacity-40 transition-opacity"
-                    style={{
-                      width: "100px",
-                      height: "2px",
-                      background: `linear-gradient(to right, transparent, #94a3b8, transparent)`,
-                      transform: `translate(-50%, -50%) rotate(${parseFloat(feature.position.left) < 50 ? "-45deg" : "45deg"})`,
-                      transformOrigin: "0 0",
-                    }}
-                  />
                 </div>
               );
             })}
-
-            {/* Slot Symbols Particles */}
-            <div className="absolute inset-0 -z-10 overflow-hidden rounded-xl pointer-events-none">
-              {[...Array(12)].map((_, i) => {
-                const symbolType = i % 3;
-                const isBar = symbolType === 0;
-                const isDiamond = symbolType === 1;
-                const isCircle = symbolType === 2;
-                
-                return (
-                  <div
-                    key={i}
-                    className="absolute animate-sparkle-particle"
-                    style={{
-                      left: `${Math.random() * 100}%`,
-                      top: `${Math.random() * 100}%`,
-                      animationDelay: `${Math.random() * 3}s`,
-                      animationDuration: `${2 + Math.random() * 2}s`,
-                    }}
-                  >
-                    {isBar && (
-                      <div className="w-2 h-3 border border-slate-400 rounded-sm bg-slate-500/40">
-                        <div className="w-full h-0.5 bg-slate-400 mt-0.5"></div>
-                        <div className="w-full h-0.5 bg-slate-400 mt-0.5"></div>
-                      </div>
-                    )}
-                    {isDiamond && (
-                      <div className="w-2 h-2 border border-slate-400 bg-slate-500/40 rotate-45"></div>
-                    )}
-                    {isCircle && (
-                      <div className="w-2 h-2 border border-slate-400 rounded-full bg-slate-500/40"></div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Slot Machine Corner Decorations */}
-            <div className="absolute -top-3 -left-3 w-12 h-12 border-2 border-slate-400 rounded-lg animate-slot-corner shadow-lg"></div>
-            <div className="absolute -top-3 -right-3 w-12 h-12 border-2 border-slate-400 rounded-lg animate-slot-corner shadow-lg" style={{ animationDelay: "0.3s" }}></div>
-            <div className="absolute -bottom-3 -left-3 w-12 h-12 border-2 border-slate-400 rounded-lg animate-slot-corner shadow-lg" style={{ animationDelay: "0.6s" }}></div>
-            <div className="absolute -bottom-3 -right-3 w-12 h-12 border-2 border-slate-400 rounded-lg animate-slot-corner shadow-lg" style={{ animationDelay: "0.9s" }}></div>
-
-            {/* Win Lines Animation */}
-            <div className="absolute top-1/3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-slate-400 to-transparent opacity-20 animate-win-line"></div>
-            <div className="absolute top-2/3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-slate-400 to-transparent opacity-20 animate-win-line" style={{ animationDelay: "1s" }}></div>
           </div>
         </div>
       </div>

@@ -179,11 +179,14 @@ export default function HeroSection() {
 
           {/* Visual Section */}
           <div className="relative w-full h-[400px] md:h-[500px] lg:h-[550px]">
-            {/* Glow Effect Behind Dashboard */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#322996]/20 via-blue-500/20 to-cyan-500/20 dark:from-[#322996]/30 dark:via-blue-400/30 dark:to-cyan-400/30 rounded-3xl blur-3xl scale-110" />
+            {/* Glow Effect Behind Dashboard - Enhanced for Dark Theme */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#322996]/20 via-blue-500/20 to-cyan-500/20 dark:from-blue-400/40 dark:via-cyan-400/30 dark:to-blue-500/40 rounded-3xl blur-3xl scale-110 transition-all duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/10 to-transparent dark:via-blue-400/20 rounded-3xl blur-2xl scale-110 opacity-0 dark:opacity-100 transition-opacity duration-500" />
 
-            {/* Dashboard Container with Glassmorphism */}
-            <div className="relative z-10 h-full rounded-2xl bg-gradient-to-br from-background/80 to-muted/40 backdrop-blur-xl border border-border/50 shadow-2xl overflow-hidden p-4 lg:p-6">
+            {/* Dashboard Container with Glassmorphism - Enhanced for Dark Theme */}
+            <div className="relative z-10 h-full rounded-2xl bg-gradient-to-br from-background/80 to-muted/40 dark:from-background/90 dark:to-muted/50 backdrop-blur-xl border border-border/50 dark:border-blue-400/20 shadow-2xl dark:shadow-blue-500/20 overflow-hidden p-4 lg:p-6 transition-all duration-500">
+              {/* Inner Glow for Dark Theme */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-400/5 via-transparent to-cyan-400/5 opacity-0 dark:opacity-100 transition-opacity duration-500 pointer-events-none" />
               {/* Dashboard Image */}
               <div className="relative h-full rounded-xl overflow-hidden bg-muted/30">
                 <Image
@@ -220,13 +223,23 @@ export default function HeroSection() {
                   }}
                 >
                   <div className="group relative">
-                    <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 bg-gradient-to-r from-[#322996]/50 to-blue-500/50" />
-                    <div className="relative px-4 py-3 rounded-xl bg-gradient-to-br from-background/90 to-muted/50 backdrop-blur-md border border-border/50 shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
-                      <div className="flex items-center gap-3">
-                        <div className={`p-2 rounded-lg bg-gradient-to-br ${feature.color} opacity-20 dark:opacity-30 transition-opacity duration-300`}>
-                          <Icon className="w-4 h-4 text-[#322996] dark:text-blue-300 transition-colors duration-300" />
+                    {/* Enhanced Glow Effect for Dark Theme */}
+                    <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 bg-gradient-to-r from-[#322996]/50 to-blue-500/50 dark:from-blue-400/60 dark:to-cyan-400/60" />
+                    <div className="absolute inset-0 bg-gradient-to-r opacity-0 dark:opacity-30 blur-2xl transition-opacity duration-300 bg-gradient-to-r from-blue-400/40 to-cyan-400/40" />
+                    
+                    {/* Main Card */}
+                    <div className="relative px-4 py-3 rounded-xl bg-gradient-to-br from-background/90 to-muted/50 dark:from-background/95 dark:to-muted/60 backdrop-blur-md border border-border/50 dark:border-blue-400/30 shadow-lg dark:shadow-blue-500/20 group-hover:shadow-xl dark:group-hover:shadow-blue-400/30 group-hover:scale-105 transition-all duration-300">
+                      {/* Inner Glow for Dark Theme */}
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-400/5 to-cyan-400/5 opacity-0 dark:opacity-100 transition-opacity duration-300" />
+                      
+                      <div className="relative flex items-center gap-3">
+                        {/* Icon Container with Enhanced Dark Theme Styling */}
+                        <div className={`relative p-2.5 rounded-lg bg-gradient-to-br ${feature.color} opacity-20 dark:opacity-40 transition-all duration-300 group-hover:opacity-30 dark:group-hover:opacity-50`}>
+                          {/* Icon Glow in Dark Theme */}
+                          <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400/20 to-cyan-400/20 opacity-0 dark:opacity-100 blur-sm transition-opacity duration-300" />
+                          <Icon className="relative w-4 h-4 text-[#322996] dark:text-blue-200 dark:drop-shadow-[0_0_8px_rgba(96,165,250,0.6)] transition-all duration-300 group-hover:scale-110" />
                         </div>
-                        <span className="text-sm font-medium whitespace-nowrap">{feature.text}</span>
+                        <span className="text-sm font-medium whitespace-nowrap text-foreground dark:text-blue-50/90 transition-colors duration-300">{feature.text}</span>
                       </div>
                     </div>
                   </div>
@@ -234,9 +247,11 @@ export default function HeroSection() {
               );
             })}
 
-            {/* Animated Border */}
-            <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-[#322996]/20 via-blue-500/20 to-cyan-500/20 bg-clip-padding -z-10">
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#322996] via-blue-500 to-cyan-500 opacity-0 hover:opacity-100 transition-opacity duration-500 blur-sm" />
+            {/* Animated Border - Enhanced for Dark Theme */}
+            <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-[#322996]/20 via-blue-500/20 to-cyan-500/20 dark:from-blue-400/30 dark:via-cyan-400/25 dark:to-blue-500/30 bg-clip-padding -z-10 transition-all duration-500">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#322996] via-blue-500 to-cyan-500 dark:from-blue-400 dark:via-cyan-400 dark:to-blue-500 opacity-0 hover:opacity-100 transition-opacity duration-500 blur-sm" />
+              {/* Pulsing Glow in Dark Theme */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400/20 via-cyan-400/20 to-blue-400/20 opacity-0 dark:opacity-50 animate-pulse-slow transition-opacity duration-500" />
             </div>
           </div>
         </div>

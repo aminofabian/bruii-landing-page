@@ -8,7 +8,7 @@ export default function Logo() {
       {/* Logo Icon Container */}
       <div className="relative">
         {/* Glow effect on hover */}
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#322996]/20 to-blue-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
         
         {/* Main Icon */}
         <div className="relative w-10 h-10 flex items-center justify-center">
@@ -23,12 +23,12 @@ export default function Logo() {
             {/* Background with gradient */}
             <defs>
               <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgb(168, 85, 247)" stopOpacity="0.15" />
+                <stop offset="0%" stopColor="#322996" stopOpacity="0.15" />
                 <stop offset="100%" stopColor="rgb(59, 130, 246)" stopOpacity="0.15" />
               </linearGradient>
               <linearGradient id="logoStrokeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgb(168, 85, 247)" />
-                <stop offset="50%" stopColor="rgb(139, 92, 246)" />
+                <stop offset="0%" stopColor="#322996" />
+                <stop offset="50%" stopColor="#322996" />
                 <stop offset="100%" stopColor="rgb(59, 130, 246)" />
               </linearGradient>
             </defs>
@@ -77,11 +77,11 @@ export default function Logo() {
       
       {/* Logo Text */}
       <div className="relative">
-        <span className="text-xl font-bold text-foreground group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+        <span className="text-xl font-bold text-foreground group-hover:text-[#322996] dark:group-hover:text-[#322996] transition-colors duration-300">
           Bruii
         </span>
         {/* Underline effect */}
-        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 group-hover:w-full transition-all duration-300" />
+        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#322996] to-blue-500 group-hover:w-full transition-all duration-300" />
       </div>
     </Link>
   );

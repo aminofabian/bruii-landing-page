@@ -42,7 +42,7 @@ export default function HeroSection() {
   const features = [
     { icon: Zap, text: "Real-Time Processing", color: "from-yellow-400 to-orange-500" },
     { icon: Shield, text: "Enterprise Security", color: "from-blue-400 to-cyan-500" },
-    { icon: BarChart3, text: "Advanced Analytics", color: "from-purple-400 to-pink-500" },
+    { icon: BarChart3, text: "Advanced Analytics", color: "from-[#322996] to-pink-500" },
     { icon: Clock, text: "24/7 Support", color: "from-green-400 to-emerald-500" },
   ];
 
@@ -50,7 +50,7 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/50">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.15),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.25),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(50,41,150,0.15),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(50,41,150,0.25),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.15),transparent_50%)] dark:bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.25),transparent_50%)]" />
       </div>
 
@@ -65,7 +65,7 @@ export default function HeroSection() {
           return (
             <div
               key={i}
-              className="absolute rounded-full bg-gradient-to-r from-purple-400/20 to-blue-400/20 dark:from-purple-500/30 dark:to-blue-500/30 blur-sm animate-float"
+              className="absolute rounded-full bg-gradient-to-r from-[#322996]/20 to-blue-400/20 dark:from-[#322996]/30 dark:to-blue-500/30 blur-sm animate-float"
               style={{
                 width: `${size}px`,
                 height: `${size}px`,
@@ -84,8 +84,8 @@ export default function HeroSection() {
           {/* Content Section */}
           <div className="text-center lg:text-left space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 dark:bg-purple-500/20 border border-purple-500/20 dark:border-purple-400/30 backdrop-blur-sm">
-              <span className="text-sm font-medium text-purple-600 dark:text-purple-400">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#322996]/10 dark:bg-[#322996]/20 border border-[#322996]/20 dark:border-[#322996]/30 backdrop-blur-sm">
+              <span className="text-sm font-medium text-[#322996] dark:text-[#322996]">
                 All-in-One Gaming Platform
               </span>
             </div>
@@ -95,7 +95,7 @@ export default function HeroSection() {
               <span className="block text-foreground">
                 Manage Your Gaming
               </span>
-              <span className="block bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 dark:from-purple-400 dark:via-blue-400 dark:to-cyan-400 bg-clip-text text-transparent animate-gradient">
+              <span className="block bg-gradient-to-r from-[#322996] via-blue-600 to-cyan-600 dark:from-[#322996] dark:via-blue-400 dark:to-cyan-400 bg-clip-text text-transparent animate-gradient">
                 Platform Like a Pro
               </span>
             </h1>
@@ -129,7 +129,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
               <Button 
                 size="lg" 
-                className="text-base px-8 py-6 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 group"
+                className="text-base px-8 py-6 bg-gradient-to-r from-[#322996] to-blue-600 hover:from-[#2a2380] hover:to-blue-700 text-white shadow-lg shadow-[#322996]/25 hover:shadow-[#322996]/40 transition-all duration-300 group"
               >
                 Get Started
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -158,14 +158,14 @@ export default function HeroSection() {
                   return (
                     <div
                       key={i}
-                      className="text-center lg:text-left p-4 rounded-xl bg-gradient-to-br from-muted/50 to-muted/30 backdrop-blur-sm border border-border/50 hover:border-purple-500/50 transition-all duration-300 group animate-fade-in-up"
+                      className="text-center lg:text-left p-4 rounded-xl bg-gradient-to-br from-muted/50 to-muted/30 backdrop-blur-sm border border-border/50 hover:border-[#322996]/50 transition-all duration-300 group animate-fade-in-up"
                       style={{
                         animationDelay: `${0.8 + i * 0.1}s`,
                       }}
                     >
                       <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
-                        <Icon className="w-4 h-4 text-purple-500 dark:text-purple-400" />
-                        <span className="text-2xl font-bold text-foreground group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                        <Icon className="w-4 h-4 text-[#322996] dark:text-[#322996]" />
+                        <span className="text-2xl font-bold text-foreground group-hover:text-[#322996] dark:group-hover:text-[#322996] transition-colors">
                           {metric.value}
                         </span>
                       </div>
@@ -180,7 +180,7 @@ export default function HeroSection() {
           {/* Visual Section */}
           <div className="relative w-full h-[500px] lg:h-[700px]">
             {/* Glow Effect Behind Dashboard */}
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-cyan-500/20 dark:from-purple-400/30 dark:via-blue-400/30 dark:to-cyan-400/30 rounded-3xl blur-3xl scale-110" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#322996]/20 via-blue-500/20 to-cyan-500/20 dark:from-[#322996]/30 dark:via-blue-400/30 dark:to-cyan-400/30 rounded-3xl blur-3xl scale-110" />
 
             {/* Dashboard Container with Glassmorphism */}
             <div className="relative z-10 h-full rounded-2xl bg-gradient-to-br from-background/80 to-muted/40 backdrop-blur-xl border border-border/50 shadow-2xl overflow-hidden p-4 lg:p-6">
@@ -220,11 +220,11 @@ export default function HeroSection() {
                   }}
                 >
                   <div className="group relative">
-                    <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 bg-gradient-to-r from-purple-500/50 to-blue-500/50" />
+                    <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 bg-gradient-to-r from-[#322996]/50 to-blue-500/50" />
                     <div className="relative px-4 py-3 rounded-xl bg-gradient-to-br from-background/90 to-muted/50 backdrop-blur-md border border-border/50 shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
                       <div className="flex items-center gap-3">
                         <div className={`p-2 rounded-lg bg-gradient-to-br ${feature.color} opacity-20`}>
-                          <Icon className={`w-4 h-4 text-purple-500 dark:text-purple-400`} />
+                          <Icon className={`w-4 h-4 text-[#322996] dark:text-[#322996]`} />
                         </div>
                         <span className="text-sm font-medium whitespace-nowrap">{feature.text}</span>
                       </div>
@@ -235,8 +235,8 @@ export default function HeroSection() {
             })}
 
             {/* Animated Border */}
-            <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-cyan-500/20 bg-clip-padding -z-10">
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 opacity-0 hover:opacity-100 transition-opacity duration-500 blur-sm" />
+            <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-[#322996]/20 via-blue-500/20 to-cyan-500/20 bg-clip-padding -z-10">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#322996] via-blue-500 to-cyan-500 opacity-0 hover:opacity-100 transition-opacity duration-500 blur-sm" />
             </div>
           </div>
         </div>
@@ -247,7 +247,7 @@ export default function HeroSection() {
         <div className="flex flex-col items-center gap-2 animate-bounce">
           <span className="text-xs text-muted-foreground">Scroll to explore</span>
           <div className="w-6 h-10 rounded-full border-2 border-border flex items-start justify-center p-2">
-            <div className="w-1 h-3 rounded-full bg-purple-500 animate-scroll" />
+            <div className="w-1 h-3 rounded-full bg-[#322996] animate-scroll" />
           </div>
         </div>
       </div>

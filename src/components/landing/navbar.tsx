@@ -106,7 +106,7 @@ export default function Navbar() {
     >
       {/* Subtle gradient overlay matching hero */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(120,119,198,0.08),transparent_70%)] dark:bg-[radial-gradient(circle_at_50%_0%,rgba(120,119,198,0.12),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(50,41,150,0.08),transparent_70%)] dark:bg-[radial-gradient(circle_at_50%_0%,rgba(50,41,150,0.12),transparent_70%)]" />
         {!isScrolled && (
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(59,130,246,0.06),transparent_60%)] dark:bg-[radial-gradient(circle_at_80%_50%,rgba(59,130,246,0.1),transparent_60%)]" />
         )}
@@ -136,21 +136,21 @@ export default function Navbar() {
                 >
                   <span className="relative z-10">{item.label}</span>
                   
-                  {/* Active indicator with purple accent */}
+                  {/* Active indicator with custom accent */}
                   {isActive && (
-                    <span className="absolute inset-0 bg-purple-500/10 dark:bg-purple-500/20 rounded-lg -z-0 animate-fade-in" />
+                    <span className="absolute inset-0 bg-[#322996]/10 dark:bg-[#322996]/20 rounded-lg -z-0 animate-fade-in" />
                   )}
                   
-                  {/* Hover effect with purple accent */}
+                  {/* Hover effect with custom accent */}
                   <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 transition-all duration-300 group-hover:w-3/4 ${
                     isActive 
-                      ? "w-3/4 bg-purple-500 dark:bg-purple-400" 
-                      : "w-0 bg-purple-500/60 dark:bg-purple-400/60"
+                      ? "w-3/4 bg-[#322996] dark:bg-[#322996]" 
+                      : "w-0 bg-[#322996]/60 dark:bg-[#322996]/60"
                   }`} />
                   
                   {/* Subtle glow on active */}
                   {isActive && (
-                    <span className="absolute inset-0 bg-purple-500/5 dark:bg-purple-400/10 rounded-lg blur-sm -z-10" />
+                    <span className="absolute inset-0 bg-[#322996]/5 dark:bg-[#322996]/10 rounded-lg blur-sm -z-10" />
                   )}
                 </a>
               );
@@ -172,7 +172,7 @@ export default function Navbar() {
               </a>
               <Button 
                 size="sm" 
-                className="relative overflow-hidden group bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40"
+                className="relative overflow-hidden group bg-gradient-to-r from-[#322996] to-blue-600 hover:from-[#2a2380] hover:to-blue-700 text-white border-0 shadow-lg shadow-[#322996]/25 hover:shadow-[#322996]/40"
                 onClick={() => {
                   const element = document.getElementById("contact");
                   if (element) {
@@ -219,13 +219,13 @@ export default function Navbar() {
                           onClick={(e) => handleScroll(e, item.id)}
                           className={`flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 relative ${
                             isActive
-                              ? "bg-purple-500/10 dark:bg-purple-500/20 text-foreground"
+                              ? "bg-[#322996]/10 dark:bg-[#322996]/20 text-foreground"
                               : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
                           }`}
                         >
                           <span>{item.label}</span>
                           {isActive && (
-                            <div className="w-2 h-2 rounded-full bg-purple-500 dark:bg-purple-400 animate-fade-in" />
+                            <div className="w-2 h-2 rounded-full bg-[#322996] dark:bg-[#322996] animate-fade-in" />
                           )}
                         </a>
                       );
@@ -242,7 +242,7 @@ export default function Navbar() {
                       Contact
                     </a>
                     <Button
-                      className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0 shadow-lg shadow-purple-500/25"
+                      className="w-full bg-gradient-to-r from-[#322996] to-blue-600 hover:from-[#2a2380] hover:to-blue-700 text-white border-0 shadow-lg shadow-[#322996]/25"
                       onClick={() => {
                         setIsMobileMenuOpen(false);
                         const element = document.getElementById("contact");
@@ -267,11 +267,11 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Progress Indicator with purple accent */}
+      {/* Progress Indicator with custom accent */}
       {isScrolled && (
         <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-border/50">
           <div
-            className="h-full bg-gradient-to-r from-purple-500/40 via-blue-500/40 to-purple-500/40 transition-all duration-150"
+            className="h-full bg-gradient-to-r from-[#322996]/40 via-blue-500/40 to-[#322996]/40 transition-all duration-150"
             style={{
               width: `${scrollProgress}%`,
             }}

@@ -77,7 +77,17 @@ export default function FeaturesSection() {
     <section id="features" className="relative py-32 bg-background scroll-mt-16 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-muted/30">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(50,41,150,0.08),transparent_70%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(50,41,150,0.12),transparent_70%)]" />
+        <div 
+          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-gradient-shift"
+          style={{
+            background: `
+              radial-gradient(circle at 50% 50%, rgba(50,41,150,0.15) 0%, transparent 70%),
+              radial-gradient(circle at 20% 30%, rgba(59,130,246,0.12) 0%, transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(50,41,150,0.12) 0%, transparent 50%)
+            `,
+            backgroundSize: '200% 200%',
+          }}
+        />
       </div>
 
       <div className="container relative z-10 mx-auto px-4">

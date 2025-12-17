@@ -50,8 +50,27 @@ export default function HeroSection() {
     <section className="relative h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/50">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(50,41,150,0.15),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(50,41,150,0.25),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.15),transparent_50%)] dark:bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.25),transparent_50%)]" />
+        <div 
+          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-gradient-shift"
+          style={{
+            background: `
+              radial-gradient(circle at 30% 20%, rgba(50,41,150,0.3) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(59,130,246,0.3) 0%, transparent 50%),
+              radial-gradient(circle at 50% 50%, rgba(50,41,150,0.15) 0%, transparent 70%)
+            `,
+            backgroundSize: '200% 200%',
+          }}
+        />
+        <div 
+          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-wave"
+          style={{
+            background: `
+              radial-gradient(circle at 10% 60%, rgba(59,130,246,0.2) 0%, transparent 40%),
+              radial-gradient(circle at 90% 40%, rgba(50,41,150,0.2) 0%, transparent 40%)
+            `,
+            backgroundSize: '200% 200%',
+          }}
+        />
       </div>
 
       {/* Floating Particles */}

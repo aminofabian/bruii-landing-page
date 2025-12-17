@@ -68,8 +68,27 @@ export default function TechStackSection() {
     <section id="tech-stack" className="relative py-32 bg-muted/30 scroll-mt-16 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-background">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(50,41,150,0.1),transparent_60%)] dark:bg-[radial-gradient(circle_at_20%_30%,rgba(50,41,150,0.15),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(59,130,246,0.1),transparent_60%)] dark:bg-[radial-gradient(circle_at_80%_70%,rgba(59,130,246,0.15),transparent_60%)]" />
+        <div 
+          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-gradient-shift"
+          style={{
+            background: `
+              radial-gradient(circle at 20% 30%, rgba(50,41,150,0.2) 0%, transparent 60%),
+              radial-gradient(circle at 80% 70%, rgba(59,130,246,0.2) 0%, transparent 60%),
+              radial-gradient(circle at 50% 50%, rgba(50,41,150,0.1) 0%, transparent 70%)
+            `,
+            backgroundSize: '200% 200%',
+          }}
+        />
+        <div 
+          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-wave"
+          style={{
+            background: `
+              radial-gradient(circle at 10% 80%, rgba(59,130,246,0.15) 0%, transparent 50%),
+              radial-gradient(circle at 90% 20%, rgba(50,41,150,0.15) 0%, transparent 50%)
+            `,
+            backgroundSize: '200% 200%',
+          }}
+        />
       </div>
 
       {/* Floating Particles */}

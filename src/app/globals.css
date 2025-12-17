@@ -21,6 +21,14 @@ body {
   color: var(--foreground);
   font-family: var(--font-outfit), sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ensure content appears above animated background */
+body > * {
+  position: relative;
+  z-index: 1;
 }
 
 html {
@@ -308,4 +316,107 @@ body,
 
 .animate-scroll {
   animation: scroll 2s ease-in-out infinite;
+}
+
+/* Animated Dark Background Keyframes */
+@keyframes background-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes background-move {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  33% {
+    transform: translate(5%, -3%) scale(1.05);
+    opacity: 0.8;
+  }
+  66% {
+    transform: translate(-3%, 5%) scale(0.95);
+    opacity: 0.7;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes orb-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-15px, 20px) scale(0.9);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(10px, -10px) scale(1.05);
+    opacity: 0.55;
+  }
+}
+
+@keyframes mesh-gradient {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(5%) translateY(-2%);
+  }
+  50% {
+    transform: translateX(-3%) translateY(3%);
+  }
+  75% {
+    transform: translateX(2%) translateY(-1%);
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+.animate-orb-float {
+  animation: orb-float 20s ease-in-out infinite;
+}
+
+.animate-mesh-gradient {
+  background-size: 200% 200%;
+  animation: mesh-gradient 20s ease infinite;
+}
+
+.animate-wave {
+  animation: wave 25s ease-in-out infinite;
 }

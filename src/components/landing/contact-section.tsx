@@ -72,8 +72,27 @@ export default function ContactSection() {
     <section id="contact" className="relative py-32 bg-background scroll-mt-16 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/10 to-background">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(50,41,150,0.12),transparent_60%)] dark:bg-[radial-gradient(circle_at_30%_40%,rgba(50,41,150,0.18),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(59,130,246,0.12),transparent_60%)] dark:bg-[radial-gradient(circle_at_70%_60%,rgba(59,130,246,0.18),transparent_60%)]" />
+        <div 
+          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-gradient-shift"
+          style={{
+            background: `
+              radial-gradient(circle at 30% 40%, rgba(50,41,150,0.22) 0%, transparent 60%),
+              radial-gradient(circle at 70% 60%, rgba(59,130,246,0.22) 0%, transparent 60%),
+              radial-gradient(circle at 50% 50%, rgba(50,41,150,0.12) 0%, transparent 70%)
+            `,
+            backgroundSize: '200% 200%',
+          }}
+        />
+        <div 
+          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-wave"
+          style={{
+            background: `
+              radial-gradient(circle at 20% 70%, rgba(59,130,246,0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 30%, rgba(50,41,150,0.15) 0%, transparent 50%)
+            `,
+            backgroundSize: '200% 200%',
+          }}
+        />
       </div>
 
       {/* Floating Elements */}

@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/landing/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import AnimatedBackground from "@/components/landing/animated-background";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={`${outfit.variable} antialiased`}
       >
         <ThemeProvider>
+          <AnimatedBackground />
           <Navbar />
           {children}
         </ThemeProvider>

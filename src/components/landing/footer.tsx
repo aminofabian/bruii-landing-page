@@ -76,7 +76,17 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-border/50 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(50,41,150,0.08),transparent_70%)] dark:bg-[radial-gradient(circle_at_50%_0%,rgba(50,41,150,0.12),transparent_70%)]" />
+      <div 
+        className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-gradient-shift"
+        style={{
+          background: `
+            radial-gradient(circle at 50% 0%, rgba(50,41,150,0.15) 0%, transparent 70%),
+            radial-gradient(circle at 20% 50%, rgba(59,130,246,0.12) 0%, transparent 60%),
+            radial-gradient(circle at 80% 50%, rgba(50,41,150,0.12) 0%, transparent 60%)
+          `,
+          backgroundSize: '200% 200%',
+        }}
+      />
       
       {/* Floating Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

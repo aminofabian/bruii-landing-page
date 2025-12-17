@@ -47,7 +47,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/50">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(50,41,150,0.15),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(50,41,150,0.25),transparent_50%)]" />
@@ -79,10 +79,10 @@ export default function HeroSection() {
         })}
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 py-20 lg:py-32">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="container relative z-10 mx-auto px-4 py-8 lg:py-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full">
           {/* Content Section */}
-          <div className="text-center lg:text-left space-y-8">
+          <div className="text-center lg:text-left space-y-4 lg:space-y-6">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#322996]/10 dark:bg-[#322996]/20 border border-[#322996]/20 dark:border-[#322996]/30 backdrop-blur-sm">
               <span className="text-sm font-medium text-[#322996] dark:text-[#322996]">
@@ -91,7 +91,7 @@ export default function HeroSection() {
             </div>
 
             {/* Headline with Gradient */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
               <span className="block text-foreground">
                 Manage Your Gaming
               </span>
@@ -101,7 +101,7 @@ export default function HeroSection() {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               Complete white-label solution for managing multiple companies, users, games, transactions, and bonuses—all from one powerful dashboard.
             </p>
 
@@ -126,25 +126,25 @@ export default function HeroSection() {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <Button 
                 size="lg" 
-                className="text-base px-8 py-6 bg-gradient-to-r from-[#322996] to-blue-600 hover:from-[#2a2380] hover:to-blue-700 text-white shadow-lg shadow-[#322996]/25 hover:shadow-[#322996]/40 transition-all duration-300 group"
+                className="text-sm md:text-base px-6 py-5 md:px-8 md:py-6 bg-gradient-to-r from-[#322996] to-blue-600 hover:from-[#2a2380] hover:to-blue-700 text-white shadow-lg shadow-[#322996]/25 hover:shadow-[#322996]/40 transition-all duration-300 group"
               >
                 Get Started
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="text-base px-8 py-6 border-2 hover:bg-muted/50 backdrop-blur-sm"
+                className="text-sm md:text-base px-6 py-5 md:px-8 md:py-6 border-2 hover:bg-muted/50 backdrop-blur-sm"
               >
                 Request Demo
               </Button>
               <Button 
                 size="lg" 
                 variant="ghost" 
-                className="text-base px-8 py-6"
+                className="text-sm md:text-base px-6 py-5 md:px-8 md:py-6"
               >
                 Contact Us
               </Button>
@@ -152,20 +152,20 @@ export default function HeroSection() {
 
             {/* Live Metrics */}
             {mounted && (
-              <div className="grid grid-cols-3 gap-4 pt-8">
+              <div className="grid grid-cols-3 gap-3 lg:gap-4 pt-4 lg:pt-6">
                 {metrics.map((metric, i) => {
                   const Icon = metric.icon;
                   return (
                     <div
                       key={i}
-                      className="text-center lg:text-left p-4 rounded-xl bg-gradient-to-br from-muted/50 to-muted/30 backdrop-blur-sm border border-border/50 hover:border-[#322996]/50 transition-all duration-300 group animate-fade-in-up"
+                      className="text-center lg:text-left p-3 lg:p-4 rounded-xl bg-gradient-to-br from-muted/50 to-muted/30 backdrop-blur-sm border border-border/50 hover:border-[#322996]/50 transition-all duration-300 group animate-fade-in-up"
                       style={{
                         animationDelay: `${0.8 + i * 0.1}s`,
                       }}
                     >
-                      <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
-                        <Icon className="w-4 h-4 text-[#322996] dark:text-[#322996]" />
-                        <span className="text-2xl font-bold text-foreground group-hover:text-[#322996] dark:group-hover:text-[#322996] transition-colors">
+                      <div className="flex items-center justify-center lg:justify-start gap-2 mb-1 lg:mb-2">
+                        <Icon className="w-3 h-3 lg:w-4 lg:h-4 text-[#322996] dark:text-[#322996]" />
+                        <span className="text-lg lg:text-2xl font-bold text-foreground group-hover:text-[#322996] dark:group-hover:text-[#322996] transition-colors">
                           {metric.value}
                         </span>
                       </div>
@@ -178,7 +178,7 @@ export default function HeroSection() {
           </div>
 
           {/* Visual Section */}
-          <div className="relative w-full h-[500px] lg:h-[700px]">
+          <div className="relative w-full h-[400px] md:h-[500px] lg:h-[550px]">
             {/* Glow Effect Behind Dashboard */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#322996]/20 via-blue-500/20 to-cyan-500/20 dark:from-[#322996]/30 dark:via-blue-400/30 dark:to-cyan-400/30 rounded-3xl blur-3xl scale-110" />
 

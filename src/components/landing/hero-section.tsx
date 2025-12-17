@@ -119,7 +119,7 @@ export default function HeroSection() {
                     animationDelay: `${i * 0.1}s`,
                   }}
                 >
-                  <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-green-500 dark:text-green-400 flex-shrink-0 transition-colors duration-300" />
                   <span className="text-sm font-medium">{benefit}</span>
                 </div>
               ))}
@@ -164,8 +164,8 @@ export default function HeroSection() {
                       }}
                     >
                       <div className="flex items-center justify-center lg:justify-start gap-2 mb-1 lg:mb-2">
-                        <Icon className="w-3 h-3 lg:w-4 lg:h-4 text-[#322996] dark:text-[#322996]" />
-                        <span className="text-lg lg:text-2xl font-bold text-foreground group-hover:text-[#322996] dark:group-hover:text-[#322996] transition-colors">
+                        <Icon className="w-3 h-3 lg:w-4 lg:h-4 text-[#322996] dark:text-blue-400 transition-colors duration-300" />
+                        <span className="text-lg lg:text-2xl font-bold text-foreground group-hover:text-[#322996] dark:group-hover:text-blue-400 transition-colors duration-300">
                           {metric.value}
                         </span>
                       </div>
@@ -223,8 +223,8 @@ export default function HeroSection() {
                     <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 bg-gradient-to-r from-[#322996]/50 to-blue-500/50" />
                     <div className="relative px-4 py-3 rounded-xl bg-gradient-to-br from-background/90 to-muted/50 backdrop-blur-md border border-border/50 shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
                       <div className="flex items-center gap-3">
-                        <div className={`p-2 rounded-lg bg-gradient-to-br ${feature.color} opacity-20`}>
-                          <Icon className={`w-4 h-4 text-[#322996] dark:text-[#322996]`} />
+                        <div className={`p-2 rounded-lg bg-gradient-to-br ${feature.color} opacity-20 dark:opacity-30 transition-opacity duration-300`}>
+                          <Icon className="w-4 h-4 text-[#322996] dark:text-blue-300 transition-colors duration-300" />
                         </div>
                         <span className="text-sm font-medium whitespace-nowrap">{feature.text}</span>
                       </div>

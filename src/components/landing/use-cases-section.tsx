@@ -155,7 +155,7 @@ export default function UseCasesSection() {
                       </div>
                       
                       {/* Arrow Indicator */}
-                      <ArrowRight className={`w-6 h-6 text-[#322996] transition-all duration-300 ${
+                      <ArrowRight className={`w-6 h-6 text-[#322996] dark:text-blue-400 transition-all duration-300 ${
                         isHovered ? "translate-x-2 opacity-100" : "translate-x-0 opacity-0"
                       }`} />
                     </div>
@@ -195,7 +195,7 @@ export default function UseCasesSection() {
                               : "none",
                           }}
                         >
-                          <CheckCircle2 className="w-4 h-4 text-[#322996] flex-shrink-0" />
+                          <CheckCircle2 className="w-4 h-4 text-[#322996] dark:text-blue-400 flex-shrink-0 transition-colors duration-300" />
                           <span className="text-sm text-foreground font-medium">{feature}</span>
                         </div>
                       ))}
@@ -255,7 +255,7 @@ export default function UseCasesSection() {
                         animation: mounted ? `fadeInUp 0.6s ease-out ${(useCases.length * 0.15) + (itemIndex * 0.1) + 0.5}s both` : "none",
                       }}
                     >
-                      <ItemIcon className="w-4 h-4 text-[#322996]" />
+                      <ItemIcon className="w-4 h-4 text-[#322996] dark:text-blue-400 transition-colors duration-300" />
                       <span className="text-sm font-medium text-foreground">{item.text}</span>
                     </div>
                   );

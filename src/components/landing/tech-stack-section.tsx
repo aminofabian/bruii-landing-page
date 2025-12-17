@@ -172,8 +172,8 @@ export default function TechStackSection() {
                         <div className="relative z-10 flex items-start justify-between gap-4">
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-2">
-                              <CheckCircle2 className="w-4 h-4 text-[#322996] flex-shrink-0" />
-                              <h4 className="font-bold text-foreground group-hover/tech:text-[#322996] transition-colors">
+                              <CheckCircle2 className="w-4 h-4 text-[#322996] dark:text-blue-400 flex-shrink-0 transition-colors duration-300" />
+                              <h4 className="font-bold text-foreground group-hover/tech:text-[#322996] dark:group-hover/tech:text-blue-400 transition-colors duration-300">
                                 {tech.name}
                               </h4>
                             </div>
@@ -183,15 +183,15 @@ export default function TechStackSection() {
                           </div>
                           
                           {/* Level Badge */}
-                          <div className="flex-shrink-0 px-3 py-1 rounded-full bg-[#322996]/10 border border-[#322996]/20">
-                            <span className="text-xs font-bold text-[#322996]">
+                          <div className="flex-shrink-0 px-3 py-1 rounded-full bg-[#322996]/10 dark:bg-[#322996]/20 border border-[#322996]/20 dark:border-blue-400/30 transition-colors duration-300">
+                            <span className="text-xs font-bold text-[#322996] dark:text-blue-400 transition-colors duration-300">
                               {tech.level}%
                             </span>
                           </div>
                         </div>
 
                         {/* Hover Arrow */}
-                        <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#322996] opacity-0 group-hover/tech:opacity-100 group-hover/tech:translate-x-0 translate-x-2 transition-all duration-300" />
+                        <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#322996] dark:text-blue-400 opacity-0 group-hover/tech:opacity-100 group-hover/tech:translate-x-0 translate-x-2 transition-all duration-300" />
                       </div>
                     ))}
                   </div>
@@ -230,10 +230,10 @@ export default function TechStackSection() {
                 }}
               >
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#322996]/10 to-[#322996]/5 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <StatIcon className="w-6 h-6 text-[#322996]" />
+                  <StatIcon className="w-6 h-6 text-[#322996] dark:text-blue-400 transition-colors duration-300" />
                 </div>
-                <div className="text-3xl font-bold text-foreground mb-1">{stat.value}</div>
-                <div className="text-sm font-semibold text-[#322996] mb-1">{stat.label}</div>
+                <div className="text-3xl font-bold text-foreground mb-1 transition-colors duration-300">{stat.value}</div>
+                <div className="text-sm font-semibold text-[#322996] dark:text-blue-400 mb-1 transition-colors duration-300">{stat.label}</div>
                 <div className="text-xs text-muted-foreground">{stat.description}</div>
               </div>
             );

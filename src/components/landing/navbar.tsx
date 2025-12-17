@@ -144,8 +144,8 @@ export default function Navbar() {
                   {/* Hover effect with custom accent */}
                   <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 transition-all duration-300 group-hover:w-3/4 ${
                     isActive 
-                      ? "w-3/4 bg-[#322996] dark:bg-[#322996]" 
-                      : "w-0 bg-[#322996]/60 dark:bg-[#322996]/60"
+                      ? "w-3/4 bg-[#322996] dark:bg-blue-400" 
+                      : "w-0 bg-[#322996]/60 dark:bg-blue-400/60"
                   }`} />
                   
                   {/* Subtle glow on active */}
@@ -225,7 +225,7 @@ export default function Navbar() {
                         >
                           <span>{item.label}</span>
                           {isActive && (
-                            <div className="w-2 h-2 rounded-full bg-[#322996] dark:bg-[#322996] animate-fade-in" />
+                            <div className="w-2 h-2 rounded-full bg-[#322996] dark:bg-blue-400 animate-fade-in transition-colors duration-300" />
                           )}
                         </a>
                       );
@@ -271,7 +271,7 @@ export default function Navbar() {
       {isScrolled && (
         <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-border/50">
           <div
-            className="h-full bg-gradient-to-r from-[#322996]/40 via-blue-500/40 to-[#322996]/40 transition-all duration-150"
+            className="h-full bg-gradient-to-r from-[#322996]/40 via-blue-500/40 to-[#322996]/40 dark:from-blue-400/40 dark:via-blue-500/40 dark:to-blue-400/40 transition-all duration-300"
             style={{
               width: `${scrollProgress}%`,
             }}

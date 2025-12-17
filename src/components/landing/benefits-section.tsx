@@ -42,8 +42,8 @@ export default function BenefitsSection() {
               className="p-6 rounded-lg border border-border bg-background hover:shadow-md transition-shadow"
             >
               <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="w-4 h-4 text-primary" />
+                <div className="w-6 h-6 rounded-full bg-[#322996]/10 dark:bg-[#322996]/20 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors duration-300">
+                  <Check className="w-4 h-4 text-[#322996] dark:text-blue-400 transition-colors duration-300" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>

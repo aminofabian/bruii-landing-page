@@ -127,7 +127,7 @@ export default function Footer() {
               
               {isSubscribed ? (
                 <div className="flex items-center gap-2 p-4 rounded-lg bg-green-500/10 border border-green-500/20">
-                  <CheckCircle2 className="w-5 h-5 text-green-500" />
+                  <CheckCircle2 className="w-5 h-5 text-green-500 dark:text-green-400 transition-colors duration-300" />
                   <span className="text-sm font-medium text-green-600 dark:text-green-400">
                     Successfully subscribed!
                   </span>
@@ -217,7 +217,7 @@ export default function Footer() {
                   aria-label={social.label}
                   className="w-10 h-10 rounded-lg bg-gradient-to-br from-muted/50 to-muted/30 border border-border/50 flex items-center justify-center hover:border-[#322996]/50 hover:bg-[#322996]/10 transition-all duration-300 group"
                 >
-                  <SocialIcon className="w-5 h-5 text-muted-foreground group-hover:text-[#322996] transition-colors" />
+                  <SocialIcon className="w-5 h-5 text-muted-foreground group-hover:text-[#322996] dark:group-hover:text-blue-400 transition-colors duration-300" />
                 </a>
               );
             })}

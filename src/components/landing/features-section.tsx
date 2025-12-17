@@ -81,8 +81,28 @@ export default function FeaturesSection() {
       <div className="container relative z-10 mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#322996]/10 dark:bg-[#322996]/20 border border-[#322996]/20 dark:border-[#322996]/30 backdrop-blur-sm mb-6">
-            <span className="text-sm font-medium text-[#322996]">Platform Features</span>
+          <div 
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm mb-6 transition-all duration-300"
+            style={mounted && isDark ? {
+              background: 'rgba(15, 15, 20, 0.85)',
+              borderColor: 'rgba(59, 130, 246, 0.3)',
+              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(59, 130, 246, 0.15)',
+            } : {
+              background: 'rgba(50, 41, 150, 0.1)',
+              borderColor: 'rgba(50, 41, 150, 0.2)',
+            }}
+          >
+            <span 
+              className="text-sm font-medium transition-colors duration-300"
+              style={mounted && isDark ? {
+                color: '#e5e7eb',
+                textShadow: '0 0 4px rgba(147, 197, 253, 0.3)',
+              } : {
+                color: '#322996',
+              }}
+            >
+              Platform Features
+            </span>
           </div>
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-foreground via-foreground to-[#322996] bg-clip-text text-transparent">
@@ -138,10 +158,40 @@ export default function FeaturesSection() {
                     </div>
                     
                     {/* Floating Badge */}
-                    <div className="absolute top-4 right-4 px-4 py-2 rounded-full bg-[#322996]/90 backdrop-blur-md border border-[#322996]/50 shadow-lg">
+                    <div 
+                      className="absolute top-4 right-4 px-4 py-2 rounded-full backdrop-blur-md border shadow-lg transition-all duration-300"
+                      style={mounted && isDark ? {
+                        background: 'rgba(15, 15, 20, 0.9)',
+                        borderColor: 'rgba(59, 130, 246, 0.4)',
+                        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(59, 130, 246, 0.3)',
+                      } : {
+                        background: 'rgba(50, 41, 150, 0.9)',
+                        borderColor: 'rgba(50, 41, 150, 0.5)',
+                      }}
+                    >
                       <div className="flex items-center gap-2">
-                        <Icon className="w-4 h-4 text-white" />
-                        <span className="text-sm font-semibold text-white">Featured</span>
+                        <div
+                          className="transition-all duration-300"
+                          style={mounted && isDark ? {
+                            color: '#93c5fd',
+                            filter: 'drop-shadow(0 0 4px rgba(147, 197, 253, 0.8))',
+                          } : {
+                            color: '#ffffff',
+                          }}
+                        >
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        <span 
+                          className="text-sm font-semibold transition-colors duration-300"
+                          style={mounted && isDark ? {
+                            color: '#e5e7eb',
+                            textShadow: '0 0 4px rgba(147, 197, 253, 0.3)',
+                          } : {
+                            color: '#ffffff',
+                          }}
+                        >
+                          Featured
+                        </span>
                       </div>
                     </div>
                   </div>

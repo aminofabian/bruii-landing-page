@@ -72,9 +72,37 @@ export default function TechStackSection() {
       <div className="container relative z-10 mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#322996]/10 dark:bg-[#322996]/20 border border-[#322996]/20 dark:border-[#322996]/30 backdrop-blur-sm mb-6">
-            <Sparkles className="w-4 h-4 text-[#322996]" />
-            <span className="text-sm font-medium text-[#322996]">Technology Stack</span>
+          <div 
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm mb-6 transition-all duration-300"
+            style={mounted && isDark ? {
+              background: 'rgba(15, 15, 20, 0.85)',
+              borderColor: 'rgba(59, 130, 246, 0.3)',
+              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(59, 130, 246, 0.15)',
+            } : {
+              background: 'rgba(50, 41, 150, 0.1)',
+              borderColor: 'rgba(50, 41, 150, 0.2)',
+            }}
+          >
+            <Sparkles 
+              className="w-4 h-4 transition-all duration-300"
+              style={mounted && isDark ? {
+                color: '#93c5fd',
+                filter: 'drop-shadow(0 0 4px rgba(147, 197, 253, 0.8))',
+              } : {
+                color: '#322996',
+              }}
+            />
+            <span 
+              className="text-sm font-medium transition-colors duration-300"
+              style={mounted && isDark ? {
+                color: '#e5e7eb',
+                textShadow: '0 0 4px rgba(147, 197, 253, 0.3)',
+              } : {
+                color: '#322996',
+              }}
+            >
+              Technology Stack
+            </span>
           </div>
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-foreground to-[#322996] bg-clip-text text-transparent">

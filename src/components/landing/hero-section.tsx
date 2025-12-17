@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import dashboardImage from "@/app/dashboard.png";
 import { 
   Building2, Users, Gamepad2, CreditCard, Gift, Network, TrendingUp, Zap,
-  ArrowRight, CheckCircle2, Sparkles, BarChart3, Shield, Clock
+  ArrowRight, CheckCircle2, BarChart3, Shield, Clock
 } from "lucide-react";
 
 interface Metric {
@@ -84,8 +84,7 @@ export default function HeroSection() {
           {/* Content Section */}
           <div className="text-center lg:text-left space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 dark:border-purple-400/30 backdrop-blur-sm">
-              <Sparkles className="w-4 h-4 text-purple-500 dark:text-purple-400" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 dark:bg-purple-500/20 border border-purple-500/20 dark:border-purple-400/30 backdrop-blur-sm">
               <span className="text-sm font-medium text-purple-600 dark:text-purple-400">
                 All-in-One Gaming Platform
               </span>

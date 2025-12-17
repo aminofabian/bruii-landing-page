@@ -40,8 +40,11 @@ export default function BenefitsSection() {
   ];
 
   return (
-    <section id="benefits" className="py-20 bg-muted/50 scroll-mt-16">
-      <div className="container mx-auto px-4">
+    <section id="benefits" className="relative py-20 bg-muted/50 scroll-mt-16 overflow-hidden">
+      {/* Subtle overlay for section separation */}
+      <div className="absolute inset-0 bg-muted/30 dark:bg-muted/20" />
+
+      <div className="container relative z-10 mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-4">Why Choose Our Platform</h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           Key Advantages for Your Gaming Operations
@@ -50,7 +53,24 @@ export default function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="p-6 rounded-lg border border-border bg-background hover:shadow-md transition-shadow"
+              className="p-6 rounded-lg border border-border bg-background hover:shadow-md transition-all duration-300"
+              style={mounted && isDark ? {
+                background: 'rgba(15, 15, 20, 0.85)',
+                borderColor: 'rgba(59, 130, 246, 0.3)',
+                boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2)',
+              } : {}}
+              onMouseEnter={(e) => {
+                if (mounted && isDark) {
+                  e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)';
+                  e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.3)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (mounted && isDark) {
+                  e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)';
+                  e.currentTarget.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2)';
+                }
+              }}
             >
               <div className="flex items-start gap-3">
                 <div 
@@ -73,8 +93,21 @@ export default function BenefitsSection() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <h3 
+                    className="text-lg font-semibold mb-2 transition-colors duration-300"
+                    style={mounted && isDark ? {
+                      color: '#e5e7eb',
+                      textShadow: '0 0 4px rgba(147, 197, 253, 0.3)',
+                    } : {}}
+                  >
+                    {benefit.title}
+                  </h3>
+                  <p 
+                    className="text-sm transition-colors duration-300"
+                    style={mounted && isDark ? {
+                      color: '#d1d5db',
+                    } : {}}
+                  >
                     {benefit.description}
                   </p>
                 </div>

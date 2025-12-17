@@ -75,20 +75,8 @@ export default function FeaturesSection() {
 
   return (
     <section id="features" className="relative py-32 bg-background scroll-mt-16 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-muted/30">
-        <div 
-          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-gradient-shift"
-          style={{
-            background: `
-              radial-gradient(circle at 50% 50%, rgba(50,41,150,0.15) 0%, transparent 70%),
-              radial-gradient(circle at 20% 30%, rgba(59,130,246,0.12) 0%, transparent 50%),
-              radial-gradient(circle at 80% 70%, rgba(50,41,150,0.12) 0%, transparent 50%)
-            `,
-            backgroundSize: '200% 200%',
-          }}
-        />
-      </div>
+      {/* Subtle overlay for section separation */}
+      <div className="absolute inset-0 bg-background/50 dark:bg-background/30" />
 
       <div className="container relative z-10 mx-auto px-4">
         {/* Header */}
@@ -166,10 +154,11 @@ export default function FeaturesSection() {
                   }`}
                 >
                     <div 
-                      className="inline-flex items-center gap-3 px-4 py-2 rounded-lg border transition-colors duration-300"
+                      className="inline-flex items-center gap-3 px-4 py-2 rounded-lg border transition-all duration-300"
                       style={mounted && isDark ? {
-                        background: 'rgba(255, 255, 255, 0.15)',
-                        borderColor: 'rgba(255, 255, 255, 0.3)',
+                        background: 'rgba(15, 15, 20, 0.85)',
+                        borderColor: 'rgba(59, 130, 246, 0.3)',
+                        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(59, 130, 246, 0.15)',
                       } : {
                         background: 'rgba(50, 41, 150, 0.1)',
                         borderColor: 'rgba(50, 41, 150, 0.2)',
@@ -178,8 +167,9 @@ export default function FeaturesSection() {
                     <div 
                       className="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300"
                       style={mounted && isDark ? {
-                        background: 'rgba(255, 255, 255, 0.2)',
-                        boxShadow: '0 4px 12px rgba(255, 255, 255, 0.15)',
+                        background: 'rgba(59, 130, 246, 0.15)',
+                        boxShadow: '0 4px 20px rgba(59, 130, 246, 0.2), inset 0 0 10px rgba(59, 130, 246, 0.1)',
+                        border: '1px solid rgba(59, 130, 246, 0.3)',
                       } : {
                         background: 'rgba(50, 41, 150, 0.2)',
                       }}
@@ -187,8 +177,8 @@ export default function FeaturesSection() {
                       <div
                         className="transition-all duration-300"
                         style={mounted && isDark ? {
-                          color: '#111827',
-                          filter: 'drop-shadow(0 0 4px rgba(255, 255, 255, 0.8))',
+                          color: '#93c5fd',
+                          filter: 'drop-shadow(0 0 6px rgba(147, 197, 253, 0.8))',
                         } : {
                           color: '#322996',
                         }}
@@ -199,8 +189,8 @@ export default function FeaturesSection() {
                     <span 
                       className="text-sm font-semibold transition-colors duration-300"
                       style={mounted && isDark ? {
-                        color: '#111827',
-                        textShadow: '0 0 2px rgba(255, 255, 255, 0.6)',
+                        color: '#e5e7eb',
+                        textShadow: '0 0 4px rgba(147, 197, 253, 0.3)',
                       } : {
                         color: '#322996',
                       }}
@@ -252,18 +242,45 @@ export default function FeaturesSection() {
                   className="group relative p-6 rounded-xl border border-border/50 bg-gradient-to-br from-card to-card/50 hover:border-[#322996]/50 hover:shadow-xl hover:shadow-[#322996]/10 transition-all duration-300 overflow-hidden"
                   style={{
                     animation: mounted ? `fadeInUp 0.6s ease-out ${(featuredFeatures.length * 0.2) + (index * 0.1)}s both` : "none",
+                    ...(mounted && isDark ? {
+                      background: 'rgba(15, 15, 20, 0.85)',
+                      borderColor: 'rgba(59, 130, 246, 0.3)',
+                      boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2)',
+                    } : {}),
+                  }}
+                  onMouseEnter={(e) => {
+                    if (mounted && isDark) {
+                      e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.3)';
+                      e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (mounted && isDark) {
+                      e.currentTarget.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2)';
+                      e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)';
+                    }
                   }}
                 >
                   {/* Background Glow on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#322996]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div 
+                    className="absolute inset-0 rounded-xl transition-opacity duration-300"
+                    style={mounted && isDark ? {
+                      background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(50, 41, 150, 0.1) 100%)',
+                      opacity: 0,
+                    } : {
+                      background: 'linear-gradient(to bottom right, rgba(50, 41, 150, 0.05), transparent)',
+                      opacity: 0,
+                    }}
+                  />
                   
                   {/* Content */}
                   <div className="relative z-10">
                     <div 
                       className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300"
                       style={mounted && isDark ? {
-                        background: 'rgba(255, 255, 255, 0.25)',
-                        boxShadow: '0 4px 16px rgba(255, 255, 255, 0.2)',
+                        background: 'rgba(59, 130, 246, 0.15)',
+                        boxShadow: '0 4px 20px rgba(59, 130, 246, 0.2), inset 0 0 10px rgba(59, 130, 246, 0.1)',
+                        border: '1px solid rgba(59, 130, 246, 0.3)',
                       } : {
                         background: 'linear-gradient(to bottom right, rgba(50, 41, 150, 0.1), rgba(50, 41, 150, 0.05))',
                       }}
@@ -271,8 +288,8 @@ export default function FeaturesSection() {
                       <div
                         className="transition-all duration-300"
                         style={mounted && isDark ? {
-                          color: '#111827',
-                          filter: 'drop-shadow(0 0 6px rgba(255, 255, 255, 0.9))',
+                          color: '#93c5fd',
+                          filter: 'drop-shadow(0 0 6px rgba(147, 197, 253, 0.8))',
                         } : {
                           color: '#322996',
                         }}
@@ -280,10 +297,21 @@ export default function FeaturesSection() {
                         <Icon className="w-7 h-7" />
                       </div>
                     </div>
-                    <h4 className="text-lg font-bold mb-2 text-foreground group-hover:text-[#322996] dark:group-hover:text-blue-400 transition-colors duration-300">
+                    <h4 
+                      className="text-lg font-bold mb-2 transition-colors duration-300"
+                      style={mounted && isDark ? {
+                        color: '#e5e7eb',
+                        textShadow: '0 0 4px rgba(147, 197, 253, 0.3)',
+                      } : {}}
+                    >
                       {feature.title}
                     </h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p 
+                      className="text-sm leading-relaxed transition-colors duration-300"
+                      style={mounted && isDark ? {
+                        color: '#d1d5db',
+                      } : {}}
+                    >
                       {feature.description}
                     </p>
                   </div>

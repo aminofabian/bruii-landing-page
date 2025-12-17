@@ -48,63 +48,34 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Animated Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/50">
-        <div 
-          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-gradient-shift"
-          style={{
-            background: `
-              radial-gradient(circle at 30% 20%, rgba(50,41,150,0.3) 0%, transparent 50%),
-              radial-gradient(circle at 70% 80%, rgba(59,130,246,0.3) 0%, transparent 50%),
-              radial-gradient(circle at 50% 50%, rgba(50,41,150,0.15) 0%, transparent 70%)
-            `,
-            backgroundSize: '200% 200%',
-          }}
-        />
-        <div 
-          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-wave"
-          style={{
-            background: `
-              radial-gradient(circle at 10% 60%, rgba(59,130,246,0.2) 0%, transparent 40%),
-              radial-gradient(circle at 90% 40%, rgba(50,41,150,0.2) 0%, transparent 40%)
-            `,
-            backgroundSize: '200% 200%',
-          }}
-        />
-      </div>
-
-      {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => {
-          const size = Math.random() * 4 + 2;
-          const left = Math.random() * 100;
-          const top = Math.random() * 100;
-          const duration = Math.random() * 10 + 10;
-          const delay = Math.random() * 5;
-          return (
-            <div
-              key={i}
-              className="absolute rounded-full bg-gradient-to-r from-[#322996]/20 to-blue-400/20 dark:from-[#322996]/30 dark:to-blue-500/30 blur-sm animate-float"
-              style={{
-                width: `${size}px`,
-                height: `${size}px`,
-                left: `${left}%`,
-                top: `${top}%`,
-                animationDuration: `${duration}s`,
-                animationDelay: `${delay}s`,
-              }}
-            />
-          );
-        })}
-      </div>
+      {/* Subtle overlay for section separation */}
+      <div className="absolute inset-0 bg-background/50 dark:bg-background/30" />
 
       <div className="container relative z-10 mx-auto px-4 py-8 lg:py-12">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full">
           {/* Content Section */}
           <div className="text-center lg:text-left space-y-4 lg:space-y-6">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#322996]/10 dark:bg-[#322996]/20 border border-[#322996]/20 dark:border-[#322996]/30 backdrop-blur-sm">
-              <span className="text-sm font-medium text-[#322996] dark:text-[#322996]">
+            <div 
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm transition-all duration-300"
+              style={mounted && isDark ? {
+                background: 'rgba(15, 15, 20, 0.85)',
+                borderColor: 'rgba(59, 130, 246, 0.3)',
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(59, 130, 246, 0.15)',
+              } : {
+                background: 'rgba(50, 41, 150, 0.1)',
+                borderColor: 'rgba(50, 41, 150, 0.2)',
+              }}
+            >
+              <span 
+                className="text-sm font-medium transition-colors duration-300"
+                style={mounted && isDark ? {
+                  color: '#e5e7eb',
+                  textShadow: '0 0 4px rgba(147, 197, 253, 0.3)',
+                } : {
+                  color: '#322996',
+                }}
+              >
                 All-in-One Gaming Platform
               </span>
             </div>
@@ -243,25 +214,27 @@ export default function HeroSection() {
                 >
                   <div className="group relative">
                     {/* Enhanced Glow Effect for Dark Theme */}
-                    <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 bg-gradient-to-r from-[#322996]/50 to-blue-500/50 dark:from-white/40 dark:to-white/30" />
-                    <div className="absolute inset-0 bg-gradient-to-r opacity-0 dark:opacity-50 blur-2xl transition-opacity duration-300 bg-gradient-to-r from-white/30 to-white/20" />
+                    <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 bg-gradient-to-r from-[#322996]/50 to-blue-500/50 dark:from-blue-500/40 dark:to-cyan-500/30" />
+                    <div className="absolute inset-0 bg-gradient-to-r opacity-0 dark:opacity-40 blur-2xl transition-opacity duration-300 bg-gradient-to-r from-blue-500/30 to-cyan-500/20" />
                     
-                    {/* Main Card - Very Light in Dark Theme */}
+                    {/* Main Card - Dark Background in Dark Theme */}
                     <div 
                       className="relative px-4 py-3 rounded-xl bg-gradient-to-br from-background/90 to-muted/50 backdrop-blur-md border border-border/50 shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300"
                       style={mounted && isDark ? {
-                        background: 'rgba(255, 255, 255, 0.35)',
-                        borderColor: 'rgba(255, 255, 255, 0.6)',
-                        boxShadow: '0 10px 40px rgba(255, 255, 255, 0.25)',
+                        background: 'rgba(15, 15, 20, 0.85)',
+                        borderColor: 'rgba(59, 130, 246, 0.3)',
+                        boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2)',
                       } : {}}
                       onMouseEnter={(e) => {
                         if (mounted && isDark) {
-                          e.currentTarget.style.boxShadow = '0 20px 60px rgba(255, 255, 255, 0.35)';
+                          e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.3)';
+                          e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)';
                         }
                       }}
                       onMouseLeave={(e) => {
                         if (mounted && isDark) {
-                          e.currentTarget.style.boxShadow = '0 10px 40px rgba(255, 255, 255, 0.25)';
+                          e.currentTarget.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2)';
+                          e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)';
                         }
                       }}
                     >
@@ -269,18 +242,19 @@ export default function HeroSection() {
                       <div 
                         className="absolute inset-0 rounded-xl transition-opacity duration-300"
                         style={mounted && isDark ? {
-                          background: 'rgba(255, 255, 255, 0.2)',
+                          background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(50, 41, 150, 0.1) 100%)',
                           opacity: 1,
                         } : { opacity: 0 }}
                       />
                       
                       <div className="relative flex items-center gap-3 z-10">
-                        {/* Icon Container - Pure White Background in Dark Theme */}
+                        {/* Icon Container - Dark with Light Icon in Dark Theme */}
                         <div 
                           className="relative p-2.5 rounded-lg transition-all duration-300"
                           style={mounted && isDark ? {
-                            background: 'rgba(255, 255, 255, 0.4)',
-                            boxShadow: '0 4px 20px rgba(255, 255, 255, 0.3)',
+                            background: 'rgba(59, 130, 246, 0.15)',
+                            boxShadow: '0 4px 20px rgba(59, 130, 246, 0.2), inset 0 0 10px rgba(59, 130, 246, 0.1)',
+                            border: '1px solid rgba(59, 130, 246, 0.3)',
                           } : {
                             background: `linear-gradient(to bottom right, rgba(50, 41, 150, 0.2), rgba(59, 130, 246, 0.2))`,
                           }}
@@ -289,15 +263,15 @@ export default function HeroSection() {
                           <div 
                             className="absolute inset-0 rounded-lg blur-lg transition-opacity duration-300"
                             style={mounted && isDark ? {
-                              background: 'rgba(255, 255, 255, 0.4)',
+                              background: 'rgba(59, 130, 246, 0.3)',
                               opacity: 1,
                             } : { opacity: 0 }}
                           />
                           <Icon 
                             className="relative w-4 h-4 transition-all duration-300 group-hover:scale-110"
                             style={mounted && isDark ? {
-                              color: '#111827',
-                              filter: 'drop-shadow(0 0 6px rgba(255, 255, 255, 0.9))',
+                              color: '#93c5fd',
+                              filter: 'drop-shadow(0 0 6px rgba(147, 197, 253, 0.8))',
                             } : {
                               color: '#322996',
                             }}
@@ -306,8 +280,8 @@ export default function HeroSection() {
                         <span 
                           className="text-sm font-semibold whitespace-nowrap transition-colors duration-300"
                           style={mounted && isDark ? {
-                            color: '#111827',
-                            textShadow: '0 0 2px rgba(255, 255, 255, 0.8)',
+                            color: '#e5e7eb',
+                            textShadow: '0 0 4px rgba(147, 197, 253, 0.3)',
                           } : {}}
                         >
                           {feature.text}

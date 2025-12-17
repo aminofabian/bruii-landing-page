@@ -66,48 +66,8 @@ export default function TechStackSection() {
 
   return (
     <section id="tech-stack" className="relative py-32 bg-muted/30 scroll-mt-16 overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-background">
-        <div 
-          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-gradient-shift"
-          style={{
-            background: `
-              radial-gradient(circle at 20% 30%, rgba(50,41,150,0.2) 0%, transparent 60%),
-              radial-gradient(circle at 80% 70%, rgba(59,130,246,0.2) 0%, transparent 60%),
-              radial-gradient(circle at 50% 50%, rgba(50,41,150,0.1) 0%, transparent 70%)
-            `,
-            backgroundSize: '200% 200%',
-          }}
-        />
-        <div 
-          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-wave"
-          style={{
-            background: `
-              radial-gradient(circle at 10% 80%, rgba(59,130,246,0.15) 0%, transparent 50%),
-              radial-gradient(circle at 90% 20%, rgba(50,41,150,0.15) 0%, transparent 50%)
-            `,
-            backgroundSize: '200% 200%',
-          }}
-        />
-      </div>
-
-      {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-gradient-to-r from-[#322996]/10 to-blue-500/10 blur-sm animate-float"
-            style={{
-              width: `${Math.random() * 6 + 3}px`,
-              height: `${Math.random() * 6 + 3}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDuration: `${Math.random() * 15 + 10}s`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Subtle overlay for section separation */}
+      <div className="absolute inset-0 bg-muted/20 dark:bg-muted/10" />
 
       <div className="container relative z-10 mx-auto px-4">
         {/* Header */}
@@ -145,7 +105,26 @@ export default function TechStackSection() {
                 }}
               >
                 {/* Category Card */}
-                <div className="relative h-full rounded-2xl border border-border/50 bg-gradient-to-br from-background/80 to-muted/40 backdrop-blur-xl p-6 transition-all duration-500 hover:border-[#322996]/50 hover:shadow-2xl hover:shadow-[#322996]/20">
+                <div 
+                  className="relative h-full rounded-2xl border border-border/50 bg-gradient-to-br from-background/80 to-muted/40 backdrop-blur-xl p-6 transition-all duration-500 hover:border-[#322996]/50 hover:shadow-2xl hover:shadow-[#322996]/20"
+                  style={mounted && isDark ? {
+                    background: 'rgba(15, 15, 20, 0.9)',
+                    borderColor: 'rgba(59, 130, 246, 0.3)',
+                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.2)',
+                  } : {}}
+                  onMouseEnter={(e) => {
+                    if (mounted && isDark) {
+                      e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)';
+                      e.currentTarget.style.boxShadow = '0 30px 80px rgba(0, 0, 0, 0.7), 0 0 40px rgba(59, 130, 246, 0.3)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (mounted && isDark) {
+                      e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)';
+                      e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.2)';
+                    }
+                  }}
+                >
                   {/* Glow Effect */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 rounded-2xl blur-xl transition-opacity duration-500`} />
 
@@ -156,12 +135,31 @@ export default function TechStackSection() {
                         <Icon className="w-7 h-7 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-foreground mb-1">
+                        <h3 
+                          className="text-2xl font-bold mb-1 transition-colors duration-300"
+                          style={mounted && isDark ? {
+                            color: '#e5e7eb',
+                            textShadow: '0 0 4px rgba(147, 197, 253, 0.3)',
+                          } : {}}
+                        >
                           {category.title}
                         </h3>
                         <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 rounded-full bg-[#322996] animate-pulse" />
-                          <span className="text-sm text-muted-foreground">
+                          <div 
+                            className="w-2 h-2 rounded-full animate-pulse"
+                            style={mounted && isDark ? {
+                              backgroundColor: '#3b82f6',
+                              boxShadow: '0 0 8px rgba(59, 130, 246, 0.8)',
+                            } : {
+                              backgroundColor: '#322996',
+                            }}
+                          />
+                          <span 
+                            className="text-sm transition-colors duration-300"
+                            style={mounted && isDark ? {
+                              color: '#d1d5db',
+                            } : {}}
+                          >
                             {category.technologies.length} Technologies
                           </span>
                         </div>
@@ -179,6 +177,23 @@ export default function TechStackSection() {
                           animation: mounted && isHovered 
                             ? `slideInLeft 0.4s ease-out ${techIndex * 0.1}s both` 
                             : "none",
+                          ...(mounted && isDark ? {
+                            background: 'rgba(15, 15, 20, 0.85)',
+                            borderColor: 'rgba(59, 130, 246, 0.3)',
+                            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4), 0 0 10px rgba(59, 130, 246, 0.15)',
+                          } : {}),
+                        }}
+                        onMouseEnter={(e) => {
+                          if (mounted && isDark) {
+                            e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)';
+                            e.currentTarget.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.25)';
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (mounted && isDark) {
+                            e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)';
+                            e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.4), 0 0 10px rgba(59, 130, 246, 0.15)';
+                          }
                         }}
                       >
                         {/* Progress Bar Background */}
@@ -204,11 +219,22 @@ export default function TechStackSection() {
                                   color: '#322996',
                                 }}
                               />
-                              <h4 className="font-bold text-foreground group-hover/tech:text-[#322996] dark:group-hover/tech:text-blue-400 transition-colors duration-300">
+                              <h4 
+                                className="font-bold transition-colors duration-300"
+                                style={mounted && isDark ? {
+                                  color: '#e5e7eb',
+                                  textShadow: '0 0 4px rgba(147, 197, 253, 0.3)',
+                                } : {}}
+                              >
                                 {tech.name}
                               </h4>
                             </div>
-                            <p className="text-sm text-muted-foreground ml-6">
+                            <p 
+                              className="text-sm ml-6 transition-colors duration-300"
+                              style={mounted && isDark ? {
+                                color: '#d1d5db',
+                              } : {}}
+                            >
                               {tech.description}
                             </p>
                           </div>
@@ -283,6 +309,23 @@ export default function TechStackSection() {
                 className="text-center p-6 rounded-xl bg-gradient-to-br from-background/60 to-muted/30 backdrop-blur-sm border border-border/50 hover:border-[#322996]/50 transition-all duration-300 group"
                 style={{
                   animation: mounted ? `fadeInUp 0.6s ease-out ${(techCategories.length * 0.2) + (index * 0.1) + 0.5}s both` : "none",
+                  ...(mounted && isDark ? {
+                    background: 'rgba(15, 15, 20, 0.85)',
+                    borderColor: 'rgba(59, 130, 246, 0.3)',
+                    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2)',
+                  } : {}),
+                }}
+                onMouseEnter={(e) => {
+                  if (mounted && isDark) {
+                    e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)';
+                    e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.3)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (mounted && isDark) {
+                    e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)';
+                    e.currentTarget.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2)';
+                  }
                 }}
               >
                 <div 
@@ -304,7 +347,15 @@ export default function TechStackSection() {
                     }}
                   />
                 </div>
-                <div className="text-3xl font-bold text-foreground mb-1 transition-colors duration-300">{stat.value}</div>
+                <div 
+                  className="text-3xl font-bold mb-1 transition-colors duration-300"
+                  style={mounted && isDark ? {
+                    color: '#e5e7eb',
+                    textShadow: '0 0 4px rgba(147, 197, 253, 0.3)',
+                  } : {}}
+                >
+                  {stat.value}
+                </div>
                 <div 
                   className="text-sm font-semibold mb-1 transition-colors duration-300"
                   style={mounted && isDark ? {

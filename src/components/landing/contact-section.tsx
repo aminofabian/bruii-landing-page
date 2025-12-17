@@ -70,48 +70,8 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="relative py-32 bg-background scroll-mt-16 overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/10 to-background">
-        <div 
-          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-gradient-shift"
-          style={{
-            background: `
-              radial-gradient(circle at 30% 40%, rgba(50,41,150,0.22) 0%, transparent 60%),
-              radial-gradient(circle at 70% 60%, rgba(59,130,246,0.22) 0%, transparent 60%),
-              radial-gradient(circle at 50% 50%, rgba(50,41,150,0.12) 0%, transparent 70%)
-            `,
-            backgroundSize: '200% 200%',
-          }}
-        />
-        <div 
-          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-wave"
-          style={{
-            background: `
-              radial-gradient(circle at 20% 70%, rgba(59,130,246,0.15) 0%, transparent 50%),
-              radial-gradient(circle at 80% 30%, rgba(50,41,150,0.15) 0%, transparent 50%)
-            `,
-            backgroundSize: '200% 200%',
-          }}
-        />
-      </div>
-
-      {/* Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(10)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-gradient-to-r from-[#322996]/10 to-blue-500/10 blur-lg animate-float"
-            style={{
-              width: `${Math.random() * 150 + 80}px`,
-              height: `${Math.random() * 150 + 80}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDuration: `${Math.random() * 20 + 15}s`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Subtle overlay for section separation */}
+      <div className="absolute inset-0 bg-background/50 dark:bg-background/30" />
 
       <div className="container relative z-10 mx-auto px-4">
         {/* Header */}
@@ -157,6 +117,23 @@ export default function ContactSection() {
                     className="group relative block p-6 rounded-xl border border-border/50 bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-sm hover:border-[#322996]/50 hover:shadow-xl hover:shadow-[#322996]/10 transition-all duration-300 overflow-hidden"
                     style={{
                       animation: mounted ? `fadeInUp 0.6s ease-out ${0.4 + (index * 0.1)}s both` : "none",
+                      ...(mounted && isDark ? {
+                        background: 'rgba(15, 15, 20, 0.85)',
+                        borderColor: 'rgba(59, 130, 246, 0.3)',
+                        boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2)',
+                      } : {}),
+                    }}
+                    onMouseEnter={(e) => {
+                      if (mounted && isDark) {
+                        e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)';
+                        e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.3)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (mounted && isDark) {
+                        e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)';
+                        e.currentTarget.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2)';
+                      }
                     }}
                   >
                     {/* Gradient Background */}
@@ -167,10 +144,21 @@ export default function ContactSection() {
                         <MethodIcon className="w-7 h-7 text-white" />
                       </div>
                       <div className="flex-1">
-                        <div className="text-sm font-medium text-muted-foreground mb-1">
+                        <div 
+                          className="text-sm font-medium mb-1 transition-colors"
+                          style={mounted && isDark ? {
+                            color: '#d1d5db',
+                          } : {}}
+                        >
                           {method.label}
                         </div>
-                        <div className="text-lg font-semibold text-foreground group-hover:text-[#322996] transition-colors">
+                        <div 
+                          className="text-lg font-semibold transition-colors"
+                          style={mounted && isDark ? {
+                            color: '#e5e7eb',
+                            textShadow: '0 0 4px rgba(147, 197, 253, 0.3)',
+                          } : {}}
+                        >
                           {method.value}
                         </div>
                       </div>
@@ -345,6 +333,23 @@ export default function ContactSection() {
                 className="text-center p-6 rounded-xl bg-gradient-to-br from-background/60 to-muted/30 backdrop-blur-sm border border-border/50 hover:border-[#322996]/50 transition-all duration-300"
                 style={{
                   animation: mounted ? `fadeInUp 0.6s ease-out ${0.8 + (index * 0.1)}s both` : "none",
+                  ...(mounted && isDark ? {
+                    background: 'rgba(15, 15, 20, 0.85)',
+                    borderColor: 'rgba(59, 130, 246, 0.3)',
+                    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2)',
+                  } : {}),
+                }}
+                onMouseEnter={(e) => {
+                  if (mounted && isDark) {
+                    e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)';
+                    e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.3)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (mounted && isDark) {
+                    e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)';
+                    e.currentTarget.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2)';
+                  }
                 }}
               >
                 <div 
@@ -366,8 +371,23 @@ export default function ContactSection() {
                     }}
                   />
                 </div>
-                <div className="text-2xl font-bold text-foreground mb-1">{item.value}</div>
-                <div className="text-sm text-muted-foreground">{item.label}</div>
+                <div 
+                  className="text-2xl font-bold mb-1 transition-colors"
+                  style={mounted && isDark ? {
+                    color: '#e5e7eb',
+                    textShadow: '0 0 4px rgba(147, 197, 253, 0.3)',
+                  } : {}}
+                >
+                  {item.value}
+                </div>
+                <div 
+                  className="text-sm transition-colors"
+                  style={mounted && isDark ? {
+                    color: '#d1d5db',
+                  } : {}}
+                >
+                  {item.label}
+                </div>
               </div>
             );
           })}

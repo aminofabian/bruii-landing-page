@@ -75,36 +75,8 @@ export default function Footer() {
 
   return (
     <footer className="relative border-t border-border/50 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
-      {/* Animated Background */}
-      <div 
-        className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-gradient-shift"
-        style={{
-          background: `
-            radial-gradient(circle at 50% 0%, rgba(50,41,150,0.15) 0%, transparent 70%),
-            radial-gradient(circle at 20% 50%, rgba(59,130,246,0.12) 0%, transparent 60%),
-            radial-gradient(circle at 80% 50%, rgba(50,41,150,0.12) 0%, transparent 60%)
-          `,
-          backgroundSize: '200% 200%',
-        }}
-      />
-      
-      {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-gradient-to-r from-[#322996]/5 to-blue-500/5 blur-sm animate-float"
-            style={{
-              width: `${Math.random() * 4 + 2}px`,
-              height: `${Math.random() * 4 + 2}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDuration: `${Math.random() * 15 + 10}s`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Subtle overlay for section separation */}
+      <div className="absolute inset-0 bg-background/50 dark:bg-background/30" />
 
       <div className="container relative z-10 mx-auto px-4 py-16">
         {/* Main Footer Content */}

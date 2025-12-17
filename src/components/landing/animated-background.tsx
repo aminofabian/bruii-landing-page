@@ -61,16 +61,30 @@ export default function AnimatedBackground() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Animated Mesh Gradient Background */}
+      {/* Animated Mesh Gradient Background - Primary Layer */}
       <div 
-        className="absolute inset-0 opacity-30 animate-mesh-gradient"
+        className="absolute inset-0 opacity-40 animate-mesh-gradient"
         style={{
           background: `
-            radial-gradient(circle at 20% 30%, rgba(50, 41, 150, 0.2) 0%, transparent 50%),
-            radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
-            radial-gradient(circle at 50% 50%, rgba(50, 41, 150, 0.1) 0%, transparent 70%),
-            radial-gradient(circle at 10% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
-            radial-gradient(circle at 90% 20%, rgba(50, 41, 150, 0.15) 0%, transparent 40%)
+            radial-gradient(circle at 20% 30%, rgba(50, 41, 150, 0.25) 0%, transparent 60%),
+            radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.25) 0%, transparent 60%),
+            radial-gradient(circle at 50% 50%, rgba(50, 41, 150, 0.15) 0%, transparent 75%),
+            radial-gradient(circle at 10% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+            radial-gradient(circle at 90% 20%, rgba(50, 41, 150, 0.2) 0%, transparent 50%)
+          `,
+          backgroundSize: '200% 200%',
+        }}
+      />
+      
+      {/* Secondary Animated Layer */}
+      <div 
+        className="absolute inset-0 opacity-30 animate-gradient-shift"
+        style={{
+          background: `
+            radial-gradient(circle at 30% 60%, rgba(59, 130, 246, 0.2) 0%, transparent 55%),
+            radial-gradient(circle at 70% 40%, rgba(50, 41, 150, 0.2) 0%, transparent 55%),
+            radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 45%),
+            radial-gradient(circle at 60% 20%, rgba(50, 41, 150, 0.15) 0%, transparent 45%)
           `,
           backgroundSize: '200% 200%',
         }}

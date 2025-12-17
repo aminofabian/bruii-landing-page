@@ -72,48 +72,8 @@ export default function UseCasesSection() {
 
   return (
     <section id="use-cases" className="relative py-32 bg-background scroll-mt-16 overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/10 to-background">
-        <div 
-          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-gradient-shift"
-          style={{
-            background: `
-              radial-gradient(circle at 10% 20%, rgba(50,41,150,0.22) 0%, transparent 50%),
-              radial-gradient(circle at 90% 80%, rgba(59,130,246,0.22) 0%, transparent 50%),
-              radial-gradient(circle at 50% 50%, rgba(50,41,150,0.12) 0%, transparent 70%)
-            `,
-            backgroundSize: '200% 200%',
-          }}
-        />
-        <div 
-          className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 animate-wave"
-          style={{
-            background: `
-              radial-gradient(circle at 30% 60%, rgba(59,130,246,0.15) 0%, transparent 40%),
-              radial-gradient(circle at 70% 40%, rgba(50,41,150,0.15) 0%, transparent 40%)
-            `,
-            backgroundSize: '200% 200%',
-          }}
-        />
-      </div>
-
-      {/* Floating Orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-gradient-to-r from-[#322996]/10 to-blue-500/10 blur-xl animate-float"
-            style={{
-              width: `${Math.random() * 200 + 100}px`,
-              height: `${Math.random() * 200 + 100}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDuration: `${Math.random() * 20 + 15}s`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Subtle overlay for section separation */}
+      <div className="absolute inset-0 bg-background/50 dark:bg-background/30" />
 
       <div className="container relative z-10 mx-auto px-4">
         {/* Header */}
@@ -152,9 +112,28 @@ export default function UseCasesSection() {
                 }}
               >
                 {/* Main Card */}
-                <div className={`relative h-full rounded-2xl border border-border/50 bg-gradient-to-br from-background/90 to-muted/40 backdrop-blur-xl overflow-hidden transition-all duration-500 ${
-                  isHovered ? "border-[#322996]/50 shadow-2xl shadow-[#322996]/20 scale-[1.02]" : "hover:border-[#322996]/30"
-                }`}>
+                <div 
+                  className={`relative h-full rounded-2xl border border-border/50 bg-gradient-to-br from-background/90 to-muted/40 backdrop-blur-xl overflow-hidden transition-all duration-500 ${
+                    isHovered ? "border-[#322996]/50 shadow-2xl shadow-[#322996]/20 scale-[1.02]" : "hover:border-[#322996]/30"
+                  }`}
+                  style={mounted && isDark ? {
+                    background: 'rgba(15, 15, 20, 0.9)',
+                    borderColor: 'rgba(59, 130, 246, 0.3)',
+                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.2)',
+                  } : {}}
+                  onMouseEnter={(e) => {
+                    if (mounted && isDark) {
+                      e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)';
+                      e.currentTarget.style.boxShadow = '0 30px 80px rgba(0, 0, 0, 0.7), 0 0 40px rgba(59, 130, 246, 0.3)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (mounted && isDark) {
+                      e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)';
+                      e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.2)';
+                    }
+                  }}
+                >
                   {/* Gradient Background */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${useCase.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
@@ -167,12 +146,33 @@ export default function UseCasesSection() {
                           <Icon className="w-8 h-8 text-white" />
                         </div>
                         <div>
-                          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                          <h3 
+                            className="text-2xl md:text-3xl font-bold mb-2 transition-colors duration-300"
+                            style={mounted && isDark ? {
+                              color: '#e5e7eb',
+                              textShadow: '0 0 4px rgba(147, 197, 253, 0.3)',
+                            } : {}}
+                          >
                             {useCase.title}
                           </h3>
                           <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-[#322996] animate-pulse" />
-                            <span className="text-sm text-muted-foreground">Use Case {index + 1}</span>
+                            <div 
+                              className="w-2 h-2 rounded-full animate-pulse"
+                              style={mounted && isDark ? {
+                                backgroundColor: '#3b82f6',
+                                boxShadow: '0 0 8px rgba(59, 130, 246, 0.8)',
+                              } : {
+                                backgroundColor: '#322996',
+                              }}
+                            />
+                            <span 
+                              className="text-sm transition-colors duration-300"
+                              style={mounted && isDark ? {
+                                color: '#d1d5db',
+                              } : {}}
+                            >
+                              Use Case {index + 1}
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -192,7 +192,12 @@ export default function UseCasesSection() {
                     </div>
 
                     {/* Description */}
-                    <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
+                    <p 
+                      className="mb-6 leading-relaxed text-lg transition-colors duration-300"
+                      style={mounted && isDark ? {
+                        color: '#d1d5db',
+                      } : {}}
+                    >
                       {useCase.description}
                     </p>
 
@@ -206,10 +211,30 @@ export default function UseCasesSection() {
                             animation: mounted && isHovered 
                               ? `slideInUp 0.4s ease-out ${statIndex * 0.1}s both` 
                               : "none",
+                            ...(mounted && isDark ? {
+                              background: 'rgba(20, 20, 25, 0.8)',
+                              borderColor: 'rgba(59, 130, 246, 0.25)',
+                              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(59, 130, 246, 0.15)',
+                            } : {}),
                           }}
                         >
-                          <div className="text-2xl font-bold text-foreground mb-1">{stat.value}</div>
-                          <div className="text-xs text-muted-foreground font-medium">{stat.label}</div>
+                          <div 
+                            className="text-2xl font-bold mb-1 transition-colors duration-300"
+                            style={mounted && isDark ? {
+                              color: '#e5e7eb',
+                              textShadow: '0 0 4px rgba(147, 197, 253, 0.3)',
+                            } : {}}
+                          >
+                            {stat.value}
+                          </div>
+                          <div 
+                            className="text-xs font-medium transition-colors duration-300"
+                            style={mounted && isDark ? {
+                              color: '#d1d5db',
+                            } : {}}
+                          >
+                            {stat.label}
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -235,7 +260,14 @@ export default function UseCasesSection() {
                               color: '#322996',
                             }}
                           />
-                          <span className="text-sm text-foreground font-medium">{feature}</span>
+                          <span 
+                            className="text-sm font-medium transition-colors duration-300"
+                            style={mounted && isDark ? {
+                              color: '#e5e7eb',
+                            } : {}}
+                          >
+                            {feature}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -289,9 +321,14 @@ export default function UseCasesSection() {
                   return (
                     <div
                       key={itemIndex}
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-background/60 border border-border/50 backdrop-blur-sm"
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-background/60 border border-border/50 backdrop-blur-sm transition-all duration-300"
                       style={{
                         animation: mounted ? `fadeInUp 0.6s ease-out ${(useCases.length * 0.15) + (itemIndex * 0.1) + 0.5}s both` : "none",
+                        ...(mounted && isDark ? {
+                          background: 'rgba(15, 15, 20, 0.85)',
+                          borderColor: 'rgba(59, 130, 246, 0.3)',
+                          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(59, 130, 246, 0.15)',
+                        } : {}),
                       }}
                     >
                       <ItemIcon 
@@ -303,7 +340,14 @@ export default function UseCasesSection() {
                           color: '#322996',
                         }}
                       />
-                      <span className="text-sm font-medium text-foreground">{item.text}</span>
+                      <span 
+                        className="text-sm font-medium transition-colors duration-300"
+                        style={mounted && isDark ? {
+                          color: '#e5e7eb',
+                        } : {}}
+                      >
+                        {item.text}
+                      </span>
                     </div>
                   );
                 })}

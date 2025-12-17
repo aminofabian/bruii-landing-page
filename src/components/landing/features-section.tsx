@@ -155,11 +155,46 @@ export default function FeaturesSection() {
                     isEven ? "lg:order-2" : "lg:order-1"
                   }`}
                 >
-                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-lg bg-[#322996]/10 dark:bg-[#322996]/20 border border-[#322996]/20">
-                    <div className="w-10 h-10 rounded-lg bg-[#322996]/20 dark:bg-[#322996]/30 flex items-center justify-center transition-colors duration-300">
-                      <Icon className="w-5 h-5 text-[#322996] dark:text-blue-400 transition-colors duration-300" />
+                    <div 
+                      className="inline-flex items-center gap-3 px-4 py-2 rounded-lg border transition-colors duration-300"
+                      style={mounted && isDark ? {
+                        background: 'rgba(255, 255, 255, 0.15)',
+                        borderColor: 'rgba(255, 255, 255, 0.3)',
+                      } : {
+                        background: 'rgba(50, 41, 150, 0.1)',
+                        borderColor: 'rgba(50, 41, 150, 0.2)',
+                      }}
+                    >
+                    <div 
+                      className="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300"
+                      style={mounted && isDark ? {
+                        background: 'rgba(255, 255, 255, 0.2)',
+                        boxShadow: '0 4px 12px rgba(255, 255, 255, 0.15)',
+                      } : {
+                        background: 'rgba(50, 41, 150, 0.2)',
+                      }}
+                    >
+                      <div
+                        className="transition-all duration-300"
+                        style={mounted && isDark ? {
+                          color: '#111827',
+                          filter: 'drop-shadow(0 0 4px rgba(255, 255, 255, 0.8))',
+                        } : {
+                          color: '#322996',
+                        }}
+                      >
+                        <Icon className="w-5 h-5" />
+                      </div>
                     </div>
-                    <span className="text-sm font-semibold text-[#322996] dark:text-blue-400 transition-colors duration-300">
+                    <span 
+                      className="text-sm font-semibold transition-colors duration-300"
+                      style={mounted && isDark ? {
+                        color: '#111827',
+                        textShadow: '0 0 2px rgba(255, 255, 255, 0.6)',
+                      } : {
+                        color: '#322996',
+                      }}
+                    >
                       Feature {index + 1}
                     </span>
                   </div>
@@ -214,8 +249,26 @@ export default function FeaturesSection() {
                   
                   {/* Content */}
                   <div className="relative z-10">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#322996]/10 to-[#322996]/5 dark:from-[#322996]/20 dark:to-[#322996]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300">
-                      <Icon className="w-7 h-7 text-[#322996] dark:text-blue-400 transition-colors duration-300" />
+                    <div 
+                      className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300"
+                      style={mounted && isDark ? {
+                        background: 'rgba(255, 255, 255, 0.25)',
+                        boxShadow: '0 4px 16px rgba(255, 255, 255, 0.2)',
+                      } : {
+                        background: 'linear-gradient(to bottom right, rgba(50, 41, 150, 0.1), rgba(50, 41, 150, 0.05))',
+                      }}
+                    >
+                      <div
+                        className="transition-all duration-300"
+                        style={mounted && isDark ? {
+                          color: '#111827',
+                          filter: 'drop-shadow(0 0 6px rgba(255, 255, 255, 0.9))',
+                        } : {
+                          color: '#322996',
+                        }}
+                      >
+                        <Icon className="w-7 h-7" />
+                      </div>
                     </div>
                     <h4 className="text-lg font-bold mb-2 text-foreground group-hover:text-[#322996] dark:group-hover:text-blue-400 transition-colors duration-300">
                       {feature.title}

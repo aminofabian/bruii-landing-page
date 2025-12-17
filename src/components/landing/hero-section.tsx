@@ -224,22 +224,75 @@ export default function HeroSection() {
                 >
                   <div className="group relative">
                     {/* Enhanced Glow Effect for Dark Theme */}
-                    <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 bg-gradient-to-r from-[#322996]/50 to-blue-500/50 dark:from-blue-400/60 dark:to-cyan-400/60" />
-                    <div className="absolute inset-0 bg-gradient-to-r opacity-0 dark:opacity-30 blur-2xl transition-opacity duration-300 bg-gradient-to-r from-blue-400/40 to-cyan-400/40" />
+                    <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 bg-gradient-to-r from-[#322996]/50 to-blue-500/50 dark:from-white/40 dark:to-white/30" />
+                    <div className="absolute inset-0 bg-gradient-to-r opacity-0 dark:opacity-50 blur-2xl transition-opacity duration-300 bg-gradient-to-r from-white/30 to-white/20" />
                     
-                    {/* Main Card */}
-                    <div className="relative px-4 py-3 rounded-xl bg-gradient-to-br from-background/90 to-muted/50 dark:from-background/95 dark:to-muted/60 backdrop-blur-md border border-border/50 dark:border-blue-400/30 shadow-lg dark:shadow-blue-500/20 group-hover:shadow-xl dark:group-hover:shadow-blue-400/30 group-hover:scale-105 transition-all duration-300">
+                    {/* Main Card - Very Light in Dark Theme */}
+                    <div 
+                      className="relative px-4 py-3 rounded-xl bg-gradient-to-br from-background/90 to-muted/50 backdrop-blur-md border border-border/50 shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300"
+                      style={mounted && isDark ? {
+                        background: 'rgba(255, 255, 255, 0.35)',
+                        borderColor: 'rgba(255, 255, 255, 0.6)',
+                        boxShadow: '0 10px 40px rgba(255, 255, 255, 0.25)',
+                      } : {}}
+                      onMouseEnter={(e) => {
+                        if (mounted && isDark) {
+                          e.currentTarget.style.boxShadow = '0 20px 60px rgba(255, 255, 255, 0.35)';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (mounted && isDark) {
+                          e.currentTarget.style.boxShadow = '0 10px 40px rgba(255, 255, 255, 0.25)';
+                        }
+                      }}
+                    >
                       {/* Inner Glow for Dark Theme */}
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-400/5 to-cyan-400/5 opacity-0 dark:opacity-100 transition-opacity duration-300" />
+                      <div 
+                        className="absolute inset-0 rounded-xl transition-opacity duration-300"
+                        style={mounted && isDark ? {
+                          background: 'rgba(255, 255, 255, 0.2)',
+                          opacity: 1,
+                        } : { opacity: 0 }}
+                      />
                       
-                      <div className="relative flex items-center gap-3">
-                        {/* Icon Container with Enhanced Dark Theme Styling */}
-                        <div className={`relative p-2.5 rounded-lg bg-gradient-to-br ${feature.color} opacity-20 dark:opacity-40 transition-all duration-300 group-hover:opacity-30 dark:group-hover:opacity-50`}>
+                      <div className="relative flex items-center gap-3 z-10">
+                        {/* Icon Container - Pure White Background in Dark Theme */}
+                        <div 
+                          className="relative p-2.5 rounded-lg transition-all duration-300"
+                          style={mounted && isDark ? {
+                            background: 'rgba(255, 255, 255, 0.4)',
+                            boxShadow: '0 4px 20px rgba(255, 255, 255, 0.3)',
+                          } : {
+                            background: `linear-gradient(to bottom right, rgba(50, 41, 150, 0.2), rgba(59, 130, 246, 0.2))`,
+                          }}
+                        >
                           {/* Icon Glow in Dark Theme */}
-                          <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400/20 to-cyan-400/20 opacity-0 dark:opacity-100 blur-sm transition-opacity duration-300" />
-                          <Icon className="relative w-4 h-4 text-[#322996] dark:text-blue-200 dark:drop-shadow-[0_0_8px_rgba(96,165,250,0.6)] transition-all duration-300 group-hover:scale-110" />
+                          <div 
+                            className="absolute inset-0 rounded-lg blur-lg transition-opacity duration-300"
+                            style={mounted && isDark ? {
+                              background: 'rgba(255, 255, 255, 0.4)',
+                              opacity: 1,
+                            } : { opacity: 0 }}
+                          />
+                          <Icon 
+                            className="relative w-4 h-4 transition-all duration-300 group-hover:scale-110"
+                            style={mounted && isDark ? {
+                              color: '#111827',
+                              filter: 'drop-shadow(0 0 6px rgba(255, 255, 255, 0.9))',
+                            } : {
+                              color: '#322996',
+                            }}
+                          />
                         </div>
-                        <span className="text-sm font-medium whitespace-nowrap text-foreground dark:text-blue-50/90 transition-colors duration-300">{feature.text}</span>
+                        <span 
+                          className="text-sm font-semibold whitespace-nowrap transition-colors duration-300"
+                          style={mounted && isDark ? {
+                            color: '#111827',
+                            textShadow: '0 0 2px rgba(255, 255, 255, 0.8)',
+                          } : {}}
+                        >
+                          {feature.text}
+                        </span>
                       </div>
                     </div>
                   </div>

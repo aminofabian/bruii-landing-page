@@ -10,7 +10,11 @@ import {
   Sparkles, CheckCircle2, Send
 } from "lucide-react";
 
+import { useTheme } from "next-themes";
+
 export default function Footer() {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
   const [mounted, setMounted] = useState(false);
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -127,7 +131,15 @@ export default function Footer() {
               
               {isSubscribed ? (
                 <div className="flex items-center gap-2 p-4 rounded-lg bg-green-500/10 border border-green-500/20">
-                  <CheckCircle2 className="w-5 h-5 text-green-500 dark:text-green-400 transition-colors duration-300" />
+                  <CheckCircle2 
+                    className="w-5 h-5 transition-all duration-300"
+                    style={mounted && isDark ? {
+                      color: '#34d399',
+                      filter: 'drop-shadow(0 0 4px rgba(52, 211, 153, 0.8))',
+                    } : {
+                      color: '#10b981',
+                    }}
+                  />
                   <span className="text-sm font-medium text-green-600 dark:text-green-400">
                     Successfully subscribed!
                   </span>
@@ -217,7 +229,14 @@ export default function Footer() {
                   aria-label={social.label}
                   className="w-10 h-10 rounded-lg bg-gradient-to-br from-muted/50 to-muted/30 border border-border/50 flex items-center justify-center hover:border-[#322996]/50 hover:bg-[#322996]/10 transition-all duration-300 group"
                 >
-                  <SocialIcon className="w-5 h-5 text-muted-foreground group-hover:text-[#322996] dark:group-hover:text-blue-400 transition-colors duration-300" />
+                  <div className="relative">
+                    <SocialIcon 
+                      className="w-5 h-5 text-muted-foreground group-hover:text-[#322996] dark:text-gray-400 dark:group-hover:text-blue-400 transition-all duration-300"
+                      style={mounted && isDark ? {
+                        filter: 'drop-shadow(0 0 2px rgba(59, 130, 246, 0.4))',
+                      } : {}}
+                    />
+                  </div>
                 </a>
               );
             })}

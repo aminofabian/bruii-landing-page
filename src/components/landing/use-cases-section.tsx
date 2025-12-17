@@ -7,7 +7,11 @@ import {
   CheckCircle2, Sparkles
 } from "lucide-react";
 
+import { useTheme } from "next-themes";
+
 export default function UseCasesSection() {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
   const [mounted, setMounted] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -155,9 +159,17 @@ export default function UseCasesSection() {
                       </div>
                       
                       {/* Arrow Indicator */}
-                      <ArrowRight className={`w-6 h-6 text-[#322996] dark:text-blue-400 transition-all duration-300 ${
-                        isHovered ? "translate-x-2 opacity-100" : "translate-x-0 opacity-0"
-                      }`} />
+                      <ArrowRight 
+                        className={`w-6 h-6 transition-all duration-300 ${
+                          isHovered ? "translate-x-2 opacity-100" : "translate-x-0 opacity-0"
+                        }`}
+                        style={mounted && isDark ? {
+                          color: '#3b82f6',
+                          filter: 'drop-shadow(0 0 4px rgba(59, 130, 246, 0.8))',
+                        } : {
+                          color: '#322996',
+                        }}
+                      />
                     </div>
 
                     {/* Description */}
@@ -195,7 +207,15 @@ export default function UseCasesSection() {
                               : "none",
                           }}
                         >
-                          <CheckCircle2 className="w-4 h-4 text-[#322996] dark:text-blue-400 flex-shrink-0 transition-colors duration-300" />
+                          <CheckCircle2 
+                            className="w-4 h-4 flex-shrink-0 transition-all duration-300"
+                            style={mounted && isDark ? {
+                              color: '#3b82f6',
+                              filter: 'drop-shadow(0 0 4px rgba(59, 130, 246, 0.8))',
+                            } : {
+                              color: '#322996',
+                            }}
+                          />
                           <span className="text-sm text-foreground font-medium">{feature}</span>
                         </div>
                       ))}
@@ -255,7 +275,15 @@ export default function UseCasesSection() {
                         animation: mounted ? `fadeInUp 0.6s ease-out ${(useCases.length * 0.15) + (itemIndex * 0.1) + 0.5}s both` : "none",
                       }}
                     >
-                      <ItemIcon className="w-4 h-4 text-[#322996] dark:text-blue-400 transition-colors duration-300" />
+                      <ItemIcon 
+                        className="w-4 h-4 transition-all duration-300"
+                        style={mounted && isDark ? {
+                          color: '#3b82f6',
+                          filter: 'drop-shadow(0 0 4px rgba(59, 130, 246, 0.8))',
+                        } : {
+                          color: '#322996',
+                        }}
+                      />
                       <span className="text-sm font-medium text-foreground">{item.text}</span>
                     </div>
                   );

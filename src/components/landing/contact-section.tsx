@@ -11,7 +11,11 @@ import {
   MessageSquare, Calendar, Zap
 } from "lucide-react";
 
+import { useTheme } from "next-themes";
+
 export default function ContactSection() {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
   const [mounted, setMounted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -151,7 +155,15 @@ export default function ContactSection() {
                           {method.value}
                         </div>
                       </div>
-                      <ArrowRight className="w-5 h-5 text-[#322996] dark:text-blue-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                      <ArrowRight 
+                        className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"
+                        style={mounted && isDark ? {
+                          color: '#3b82f6',
+                          filter: 'drop-shadow(0 0 4px rgba(59, 130, 246, 0.8))',
+                        } : {
+                          color: '#322996',
+                        }}
+                      />
                     </div>
                   </a>
                 );
@@ -316,8 +328,24 @@ export default function ContactSection() {
                   animation: mounted ? `fadeInUp 0.6s ease-out ${0.8 + (index * 0.1)}s both` : "none",
                 }}
               >
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#322996]/10 to-[#322996]/5 flex items-center justify-center mx-auto mb-4">
-                  <ItemIcon className="w-6 h-6 text-[#322996] dark:text-blue-400 transition-colors duration-300" />
+                <div 
+                  className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4 transition-all duration-300"
+                  style={mounted && isDark ? {
+                    background: 'rgba(255, 255, 255, 0.2)',
+                    boxShadow: '0 4px 12px rgba(255, 255, 255, 0.15)',
+                  } : {
+                    background: 'linear-gradient(to bottom right, rgba(50, 41, 150, 0.1), rgba(50, 41, 150, 0.05))',
+                  }}
+                >
+                  <ItemIcon 
+                    className="w-6 h-6 transition-all duration-300"
+                    style={mounted && isDark ? {
+                      color: '#3b82f6',
+                      filter: 'drop-shadow(0 0 6px rgba(59, 130, 246, 0.9))',
+                    } : {
+                      color: '#322996',
+                    }}
+                  />
                 </div>
                 <div className="text-2xl font-bold text-foreground mb-1">{item.value}</div>
                 <div className="text-sm text-muted-foreground">{item.label}</div>

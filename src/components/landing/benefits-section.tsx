@@ -1,6 +1,17 @@
+"use client";
+
 import { Check } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 
 export default function BenefitsSection() {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const benefits = [
     {
       title: "Scalable",
@@ -42,8 +53,24 @@ export default function BenefitsSection() {
               className="p-6 rounded-lg border border-border bg-background hover:shadow-md transition-shadow"
             >
               <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-[#322996]/10 dark:bg-[#322996]/20 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors duration-300">
-                  <Check className="w-4 h-4 text-[#322996] dark:text-blue-400 transition-colors duration-300" />
+                <div 
+                  className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-300"
+                  style={mounted && isDark ? {
+                    background: 'rgba(255, 255, 255, 0.2)',
+                    boxShadow: '0 2px 8px rgba(255, 255, 255, 0.15)',
+                  } : {
+                    background: 'rgba(50, 41, 150, 0.1)',
+                  }}
+                >
+                  <Check 
+                    className="w-4 h-4 transition-all duration-300"
+                    style={mounted && isDark ? {
+                      color: '#3b82f6',
+                      filter: 'drop-shadow(0 0 4px rgba(59, 130, 246, 0.8))',
+                    } : {
+                      color: '#322996',
+                    }}
+                  />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
